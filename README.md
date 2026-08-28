@@ -1,5 +1,7 @@
 # The Actionable-Warning Gap — analysis pipeline
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22141125.svg)](https://doi.org/10.5281/zenodo.22141125)
+
 Code and frozen artefacts behind the paper:
 
 > Arya Sasikumar, "The Actionable-Warning Gap: Measuring Unacted Warnings in
