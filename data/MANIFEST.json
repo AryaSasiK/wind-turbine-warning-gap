@@ -1,0 +1,287 @@
+{
+  "downloaded_utc": "2026-08-27T08:26:15Z",
+  "records": {
+    "kelmarsh": {
+      "record_id": 16807551,
+      "record_url": "https://zenodo.org/records/16807551",
+      "doi": "10.5281/zenodo.16807551",
+      "concept_doi": "10.5281/zenodo.5841833",
+      "version_label": null,
+      "publication_date": "2025-08-12",
+      "zenodo_updated": "2025-08-12T11:03:52.684026+00:00",
+      "license": "cc-by-4.0",
+      "creators": [
+        "Plumley, Charlie",
+        "Takeuchi, Roberta"
+      ],
+      "title": "Kelmarsh wind farm data",
+      "total_bytes": 3837664337,
+      "files": [
+        {
+          "key": "Kelmarsh_12.3MW_6xSenvion_MM92.kmz",
+          "size": 38358,
+          "md5": "9b40d215744e437f96786a4da2d2845d",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Kelmarsh_Grid_Meter_4458.zip",
+          "size": 1723178,
+          "md5": "2696caad88ea08ac22e5fa00da9c3c46",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Kelmarsh_PMU_2023_2024_5968.zip",
+          "size": 42468224,
+          "md5": "de6c2c9d66a28ec30995839ac3516097",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Kelmarsh_PMU_4459.zip",
+          "size": 100032358,
+          "md5": "10b5caa4ac9c65de60d186efe8bdc8f7",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Kelmarsh_SCADA_2016_3082.zip",
+          "size": 97915553,
+          "md5": "ca8efbb6dbcfae3516583937eb5b5402",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Kelmarsh_SCADA_2017_3083.zip",
+          "size": 174604722,
+          "md5": "c78263ee52ee0e48e2cb4bbaa1ba211a",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Kelmarsh_SCADA_2018_3084.zip",
+          "size": 262157463,
+          "md5": "972e5280172216a5fe76dcab19c741b0",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Kelmarsh_SCADA_2019_3085.zip",
+          "size": 311269947,
+          "md5": "14348a1572b722e1be10e53cd145c39a",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Kelmarsh_SCADA_2020_3086.zip",
+          "size": 473677799,
+          "md5": "e189e02da98f32e74acc72e8559ef0db",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Kelmarsh_SCADA_2021_4456.zip",
+          "size": 467454435,
+          "md5": "4e0ef3d65f067fd3d8f3d30e79ab01ae",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Kelmarsh_SCADA_2022_4457.zip",
+          "size": 485620228,
+          "md5": "b695d2b21cd5a236b2e690e0a43df5ab",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Kelmarsh_SCADA_2023_5961.zip",
+          "size": 716099870,
+          "md5": "685d9589347d1866f6f2cfe45b9af4f4",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Kelmarsh_SCADA_2024_5962.zip",
+          "size": 704598245,
+          "md5": "e9e3318f5b393d8596ff1801f8da0414",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Kelmarsh_WT_dataSignalMapping.csv",
+          "size": 3150,
+          "md5": "ca8fe399ab15ae7111d3214c632efd36",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Kelmarsh_WT_static.csv",
+          "size": 807,
+          "md5": "af3a038f0f7fddfc1608ad0bfc8cf5ba",
+          "status": "cached-ok"
+        }
+      ]
+    },
+    "penmanshiel": {
+      "record_id": 16807304,
+      "record_url": "https://zenodo.org/records/16807304",
+      "doi": "10.5281/zenodo.16807304",
+      "concept_doi": "10.5281/zenodo.5946807",
+      "version_label": null,
+      "publication_date": "2025-08-13",
+      "zenodo_updated": "2025-08-15T12:29:31.445497+00:00",
+      "license": "cc-by-4.0",
+      "creators": [
+        "Plumley, Charlie",
+        "Takeuchi, Roberta"
+      ],
+      "title": "Penmanshiel wind farm data",
+      "total_bytes": 7489967756,
+      "files": [
+        {
+          "key": "Penmanshiel_28.7MW_14xSenvion_MM82.kmz",
+          "size": 21054,
+          "md5": "a6743bdbda025e3279ecab38937c3069",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_Grid_4464.zip",
+          "size": 1608177,
+          "md5": "92d014043c6709c959e56dfe22496f15",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_PMU_2023_2024_5969.zip",
+          "size": 43850032,
+          "md5": "7b74e50e6868b2510c442da729b3c9d6",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_PMU_4465.zip",
+          "size": 87786512,
+          "md5": "abe55b62bf115463424beaf3e842ba5f",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_SCADA_2016_WT01-10_3107.zip",
+          "size": 128926241,
+          "md5": "3819e1b2168b84da195b64e1e9d78b03",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_SCADA_2016_WT11-15_3107.zip",
+          "size": 55917173,
+          "md5": "92c30453d43a38e985af3e2e305eedd4",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_SCADA_2017_WT01-10_3114.zip",
+          "size": 273531678,
+          "md5": "c8279e34a5e33d688e2219aa9abab74e",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_SCADA_2017_WT11-15_3115.zip",
+          "size": 152896438,
+          "md5": "d41874e3d195e88506949492b5758cf6",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_SCADA_2018_WT01-10_3113.zip",
+          "size": 365016408,
+          "md5": "6389e5c4ea59d6565f6712db43a504ce",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_SCADA_2018_WT11-15_3116.zip",
+          "size": 204798983,
+          "md5": "7c40dc00df6d6301427213e15170b927",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_SCADA_2019_WT01-10_3112.zip",
+          "size": 473518587,
+          "md5": "78389603cb4ae20a6a9b878f5a84bc7b",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_SCADA_2019_WT11-15_3117.zip",
+          "size": 265354191,
+          "md5": "92747a976716c5f35d9ee6462958fd7a",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_SCADA_2020_WT01-10_3109.zip",
+          "size": 694483651,
+          "md5": "46f679f2e4ab3d69c04b31c8dc625106",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_SCADA_2020_WT11-15_3118.zip",
+          "size": 389300869,
+          "md5": "c73323f21451c08247dbdb5d1a1434a9",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_SCADA_2021_WT01-10_4460.zip",
+          "size": 749666360,
+          "md5": "7a0839cf3cd5e7044d6ab814fef3c43f",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_SCADA_2021_WT11-15_4461.zip",
+          "size": 418617876,
+          "md5": "f5804b90089ce4d50dc5117fda6f675c",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_SCADA_2022_WT01-10_4462.zip",
+          "size": 710776645,
+          "md5": "91351469cdeb3ca95be1a0414dcfec8f",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_SCADA_2022_WT11-15_4463.zip",
+          "size": 396724464,
+          "md5": "5f4743133a9cf65ad33de139b43f96b4",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_SCADA_2023_02_WT_01-10_5981.zip",
+          "size": 63977489,
+          "md5": "05ac6e90b516fa30db05dfe6361099a7",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_SCADA_2023_03_WT_01-10_5982.zip",
+          "size": 68784330,
+          "md5": "6fae49a3603dd2a503126e5e518eaf55",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_SCADA_2023_Q2_WT_01-10_5977.zip",
+          "size": 205040452,
+          "md5": "7ed1d095183469e399054695b8c4fb5e",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_SCADA_2023_Q3 Q4_WT_01-10_5973.zip",
+          "size": 452196453,
+          "md5": "f201240d4072dd4a5a8492725eb49787",
+          "status": "ok"
+        },
+        {
+          "key": "Penmanshiel_SCADA_2023_WT_11-15_5964.zip",
+          "size": 633272988,
+          "md5": "813ad4635cf50b9d96b253ee53175086",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_SCADA_2024_WT_11-15_5966.zip",
+          "size": 653879317,
+          "md5": "e0a700cad1d45f4130272feaef244b12",
+          "status": "ok"
+        },
+        {
+          "key": "Penmanshiel_WT_dataSignalMapping.xlsx",
+          "size": 19359,
+          "md5": "2eae1b84a014619268a6e4f53e6b1c91",
+          "status": "cached-ok"
+        },
+        {
+          "key": "Penmanshiel_WT_static.csv",
+          "size": 2029,
+          "md5": "c4cd4191234c1a67a391fe5d2978256b",
+          "status": "cached-ok"
+        }
+      ]
+    }
+  }
+}

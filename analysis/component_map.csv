@@ -1,0 +1,163 @@
+message,role,family,code,n_rows,service_contract_category,rationale
+Anemometer defect,stop,anemometry,6530,813,Sensor error (21),
+Vane defect,stop,anemometry,6620,41,Sensor error (21),
+Feedback brake 1,stop,brake_hydraulic,2100,21,Mechanical error (23),
+Low hydraulic pressure,stop,brake_hydraulic,5510,13,Mechanical error (23),The hydraulic system on the MM82/92 serves the mechanical brake; merged into one family.
+Brake control,stop,brake_hydraulic,305,2,Mechanical error (23),
+Feedback brake 2,stop,brake_hydraulic,2110,1,Mechanical error (23),
+Overload hydraulic pump,stop,brake_hydraulic,5600,1,Electrical error (24),
+Repeating error BP52,stop,control,455,251,Repeated error  (25),"AMBIGUOUS and high-volume (251 stops). Service category 'Repeated error (25)' names a trip-count supervisor, not a component; 'BP' also prefixes pitch messages ('Pitch too slow BP180'), so a pitch reading is possible. Assigned to `control` as the conservative choice - `control` is a thin family, so a wrong call here creates few spurious same-component matches. Pairs with the warning 'Repeating error BP 0'. Alternative: pitch."
+WEC shut down,stop,control,55,7,WEC Shutdown (1),"AMBIGUOUS: generic supervisory shutdown, service category 'WEC Shutdown (1)', no component named. Assigned to `control` rather than `manual` because nothing in the message implies a human action. Alternative: manual."
+No speed development,stop,control,435,4,Safety stop of WEC (15),"AMBIGUOUS: rotor fails to spin up on start; the physical cause could be pitch, brake or drivetrain. Assigned to `control` (start-up supervisor) precisely because it does not identify a component; n=4. Alternatives: pitch, brake_hydraulic."
+mconfig.ini check failed,stop,control,7335,3,Controller error of the WP3100 (16),WP3100 controller configuration file.
+Task runtime failure 10 ms,stop,control,7003,2,Controller error of the WP3100 (16),WP3100 controller task scheduler.
+PLC hardware error,stop,control,7415,1,Controller error of the WP3100 (16),
+Frequency converter not ready,stop,converter,3000,795,Generator and Converter errors (20),
+Frequency converter error,stop,converter,3110,181,Generator and Converter errors (20),
+Current asymmetry,stop,converter,3555,32,Generator and Converter errors (20),"AMBIGUOUS: service category 'Generator and Converter errors (20)' does not separate the two. Code 3555 sits in the 3xxx converter/switchgear block (generator faults are 2xxx), so assigned to converter. Alternative: generator."
+Frequency converter load rejection,stop,converter,3210,30,Generator and Converter errors (20),
+Max.temp.conv.inl.>perm.out.t.,stop,converter,3151,4,Temperature error (22),Converter inlet coolant over-temperature.
+Missing gear oil (high rpm),stop,drivetrain,1550,354,Mechanical error (23),
+Low gearbox oil pressure,stop,drivetrain,1510,59,Mechanical error (23),
+Implausible gear speed,stop,drivetrain,1620,36,Sensor error (21),"Service category 'Sensor error (21)', but the sensed quantity is the gearbox/rotor speed - the affected subsystem is the drivetrain."
+Particle Gear Alarm 24h,stop,drivetrain,1924,19,Mechanical error (23),Gearbox oil-debris (metal particle) sensor.
+High rotor speed nacelle,stop,drivetrain,805,19,Overspeed (14),Rotor overspeed - drivetrain rotational subsystem.
+Overload gear oil pump,stop,drivetrain,1800,15,Electrical error (24),Service category 'Electrical error (24)' describes the failure mode (motor overload); the component is the gearbox lubrication system.
+Overload fan oil cooler gear,stop,drivetrain,1815,5,Electrical error (24),As above - gearbox oil-cooler fan.
+Disc filter adaption implausible,stop,drivetrain,1630,4,Sensor error (21),"Gearbox oil disc filter (code block 16xx); service category 'Sensor error' describes the detection, not the component."
+Rotor overspeed nacelle,stop,drivetrain,815,3,Overspeed (14),
+Rotor sensor A defective,stop,drivetrain,801,1,Sensor error (21),Rotor speed sensor.
+Max. drivetrain oscillations,stop,drivetrain,1055,1,Repeated error  (25),"Service category 'Repeated error (25)' is a trip-count property, not a component; the message names the drivetrain."
+Supply circuit breaker off-state,stop,electrical,3820,3,Warnings (27),
+UPS error,stop,electrical,3410,3,Electrical error (24),
+Max. transformer temp.,stop,electrical,3805,3,Temperature error (22),
+Circuit breaker,stop,electrical,3800,1,Electrical error (24),
+UPS buffer time too short,stop,electrical,3420,1,Electrical error (24),
+Wind < power,stop,external,61,11,Safety stop of WEC (15),"Wind-versus-power plausibility stop driven by the wind resource, not a component failure."
+Wind > power,stop,external,60,8,Safety stop of WEC (15),As above.
+Service generator brushes,stop,generator,2810,55,Generator and Converter errors (20),
+Max. temp. gen. bearing 1,stop,generator,2605,6,Temperature error (22),
+Thermistor generator,stop,generator,2660,2,Temperature error (22),Generator winding thermistor trip.
+Externally stopped,stop,grid,9210,1459,External stop (grid) (4),"Service category 'External stop (grid) (4)'. IEC calls it a forced outage but it is grid-side, not a turbine fault (PROFILE §3 'the trap'); this is the T1 exclusion."
+Maximum grid frequency,stop,grid,3585,31,External stop (grid) (4),"Service category 'External stop (grid) (4)'. Grid-side. NOTE: not named in STUDY_DESIGN's frozen T1 message list, so the T1/T2 flags do NOT drop it; reported as a sensitivity in checks.md."
+Manual stop - remote,stop,manual,21,424,Remote stop (30),"Human decision, no turbine-side physical precursor. The T2 exclusion."
+Manual stop - on site,stop,manual,,0,,Spec-listed T2 exclusion; in this corpus it is IEC 'Scheduled Maintenance' so it never enters the forced-outage base population.
+Pitch controller communication error,stop,pitch,650,99,Pitch errors (18),"A comms fault *inside* the pitch system; service category is 'Pitch errors (18)', so it is a pitch failure, not a SCADA/network comms failure."
+Charging circuit pitch,stop,pitch,715,53,Pitch errors (18),
+Pitch run-away (hub box v.>=4),stop,pitch,692,41,Controller error of the WP3100 (16),Service category says 'Controller error of the WP3100' but the message names the pitch hub box explicitly; message semantics win.
+Pitch current asymmetry,stop,pitch,550,21,Pitch errors (18),
+Set point><actual value axis 2,stop,pitch,582,15,Pitch errors (18),'axis n' = pitch axis n.
+Set point><actual value axis 1,stop,pitch,581,14,Pitch errors (18),'axis n' = pitch axis n (three blades).
+Pitch angle deviation,stop,pitch,555,10,Pitch errors (18),
+Pitch too slow BP180,stop,pitch,570,9,Pitch errors (18),
+Pitch error,stop,pitch,665,8,Pitch errors (18),
+Battery voltage axis 3,stop,pitch,735,8,Pitch errors (18),"Pitch back-up batteries (code block 700-735, service category 'Pitch errors')."
+Batt. undervoltage/overvoltage,stop,pitch,700,7,Pitch errors (18),Pitch back-up batteries.
+Battery voltage axis 1,stop,pitch,725,5,Pitch errors (18),Pitch back-up batteries.
+Error pitch converter 2,stop,pitch,657,5,Pitch errors (18),
+Error pitch converter 3,stop,pitch,658,5,Pitch errors (18),
+Set point><actual value axis 3,stop,pitch,583,2,Pitch errors (18),'axis n' = pitch axis n.
+Pitch limit switch 2,stop,pitch,517,2,Pitch errors (18),
+Bladeangle implausible,stop,pitch,564,2,Pitch errors (18),
+Timeout bridging limit switches,stop,pitch,513,2,Pitch errors (18),Code 513 sits in the pitch limit-switch block; service category 'Pitch errors'.
+Error pitch converter 1,stop,pitch,656,1,Pitch errors (18),
+Max. pitch speed encoder A,stop,pitch,670,1,Pitch errors (18),
+Max. pitch speed encoder B,stop,pitch,672,1,Pitch errors (18),
+Overload fan pitch motor,stop,pitch,630,1,Pitch errors (18),
+Safety chain open,stop,safety,100,83,Safety chain (13),
+Emergency stop base box,stop,safety,117,22,Emergency stop switch (Converter) (12),
+Emergency stop top box,stop,safety,110,8,Emergency stop switch (Nacelle) (11),
+Smoke warning nacelle stop,stop,safety,4215,5,Safety stop of WEC (15),
+Emergency stop nacelle,stop,safety,111,2,Emergency stop switch (Nacelle) (11),
+Tower oscillation Y level 1,stop,tower,4510,514,Safety stop of WEC (15),
+Tower oscillation Y level 2,stop,tower,4530,315,Safety stop of WEC (15),
+Tower oscillation X level 2,stop,tower,4540,169,Safety stop of WEC (15),
+Tower oscillation X level 1,stop,tower,4520,131,Safety stop of WEC (15),
+Oscillation encoder tower,stop,tower,4588,17,Sensor error (21),"Tower accelerometer; service category 'Sensor error' describes the detection, the component is the tower monitoring chain."
+Tower resonance,stop,tower,4500,6,Operating states  (28),
+Uncontrolled yaw movement,stop,yaw,6120,33,Mechanical error (23),
+Yaw error,stop,yaw,6300,10,Sensor error (21),
+Yaw speed high,stop,yaw,6130,5,Mechanical error (23),
+Yaw velocity too low,stop,yaw,6111,3,Sensor error (21),
+Overload yaw motor 1&3,stop,yaw,6005,3,Electrical error (24),
+Overload yaw motor 2&4,stop,yaw,6010,1,Electrical error (24),
+Max. cable twistangle,stop,yaw,6210,1,Sensor error (21),Cable twist is a consequence of yaw travel; the cable-untwist function belongs to the yaw system.
+High yaw load,stop,yaw,6056,1,External stop (climate) (6),"AMBIGUOUS: service category is 'External stop (climate) (6)', which would argue for `external`, but the message and code block (60xx) are yaw. Assigned to yaw; n=1 so the choice is immaterial. Alternative: external."
+4-20mA anemometer 2,warning,anemometry,6525,1908,Warnings (27),
+4-20 mA vane 2,warning,anemometry,6635,1908,Sensor error (21),
+Vane 2 defect,warning,anemometry,6622,429,Warnings (27),
+4-20mA anemometer 1,warning,anemometry,6515,28,Warnings (27),4-20 mA loop fault on the anemometer signal.
+4-20 mA vane 1,warning,anemometry,6630,3,Sensor error (21),
+Vane 1 defect,warning,anemometry,6621,2,Warnings (27),
+Breakdown obstacle light,warning,auxiliary,5000,789,Warnings (27),Aviation obstruction light - no effect on the drivetrain.
+Heating/fan base box faulty,warning,auxiliary,4607,49,Warnings (27),Tower-base control-cabinet climate.
+Heating/fan top box faulty,warning,auxiliary,7057,44,Warnings (27),Nacelle control-cabinet climate.
+PT100 base box temp. defect,warning,auxiliary,4600,19,Warnings (27),
+Service obstacle light,warning,auxiliary,5100,14,Warnings (27),
+PT100 top box defect,warning,auxiliary,7050,2,Warnings (27),
+High temperature nacelle,warning,auxiliary,4000,2,Warnings (27),
+Top box temperature high,warning,auxiliary,7053,1,Warnings (27),
+PT100 nacelle temp. defect,warning,auxiliary,4022,1,Warnings (27),
+Timeout brake closed,warning,brake_hydraulic,2125,1345,Warnings (27),
+Brake accumulator defect,warning,brake_hydraulic,5720,1209,Warnings (27),Hydraulic accumulator of the mechanical brake.
+Brake pads worn,warning,brake_hydraulic,2000,57,Warnings (27),
+Pressure drop hydraulic sys.,warning,brake_hydraulic,5730,3,Warnings (27),
+Comm. failure FPM,warning,comms,8400,1333,Warnings (27),Farm/park-management communication link.
+Comm.err. IEC server <- CMS drive tr.,warning,comms,1161,26,Warnings (27),"AMBIGUOUS: the condition-monitoring (CMS) link for the drivetrain. Assigned to `comms` because the message reports the monitoring channel failing, not a drivetrain fault - the conservative reading. Alternative: drivetrain."
+Comm.err. IEC client -> CMS drive tr.,warning,comms,1160,26,Warnings (27),As above. Alternative: drivetrain.
+No assignment to a PMU,warning,comms,8402,9,Warnings (27),Park-management unit association.
+IP duplicate in WF network,warning,comms,8410,2,Warnings (27),Wind-farm network addressing.
+CMS drive train system error,warning,comms,1150,1,Warnings (27),As above - the CMS itself errors. Alternative: drivetrain.
+Repeating error BP 0,warning,control,440,204,Warnings (27),"AMBIGUOUS. Pairs with the stop message 'Repeating error BP52'; both are assigned to `control` so that they can match each other, and so that a wrong reading of 'BP' does not inject 204 warnings into the large `pitch` family. Alternative: pitch."
+Parameter outside limits,warning,control,7016,25,Warnings (27),Controller parameter-set integrity.
+Reduced power converter,warning,converter,3220,38,Warnings (27),
+PT100 converter inlet temperature defect,warning,converter,3205,25,Warnings (27),
+Cable overload,warning,converter,3160,14,Warnings (27),Code 3160 sits in the converter block (3151-3265); read as the converter output cabling. Alternative: electrical.
+Converter torque <> setpoint,warning,converter,3265,2,Warnings (27),
+Converter power too low,warning,converter,3260,2,Warnings (27),
+Overload gear heating,warning,drivetrain,1810,125,Electrical error (24),Service category 'Electrical error (24)' is the failure mode; the component is the gearbox heater.
+Particle Gear Alarm 10min,warning,drivetrain,1922,115,Warnings (27),Gearbox oil-debris sensor - the 10-min companion of the 24h stop message.
+Oil filter gear choked,warning,drivetrain,1860,72,Warnings (27),
+Particle sensor defect,warning,drivetrain,1920,26,Warnings (27),Gearbox oil-debris sensor.
+Drivetrain oscillations,warning,drivetrain,1050,23,Warnings (27),
+Overload gear bypass filter,warning,drivetrain,1825,19,Warnings (27),
+High temp. gear bearing 1,warning,drivetrain,1700,10,Warnings (27),
+Reduced power gearbox,warning,drivetrain,75,10,Warnings (27),Gearbox-driven derate.
+High temp. gear bearing 2,warning,drivetrain,1710,2,Warnings (27),
+PT100 inlet gear defect,warning,drivetrain,1729,2,Warnings (27),
+Overload transformer fan outlet air,warning,electrical,3870,27,Warnings (27),
+Overload transf. fan inlet air,warning,electrical,3875,15,Warnings (27),
+UPS warning,warning,electrical,3400,14,Warnings (27),
+Lightning protection defect,warning,electrical,2950,14,Warnings (27),
+Reduced power transformer,warning,electrical,77,5,Warnings (27),
+Maintenance LV HRC fuse,warning,electrical,3860,1,Warnings (27),LV high-rupture-capacity fuse in the tower-base switchgear.
+P output externally reduced,warning,external,9000,2389,Warnings (27),"Named in STUDY_DESIGN as the archetype: an externally commanded set-point, not a fault."
+Check time synchronization,warning,external,7324,526,Warnings (27),"AMBIGUOUS but high-volume (526 warnings). Pure housekeeping telemetry (NTP drift) with no fault semantics, so `external` per the STUDY_DESIGN rule. Putting it in `control` would let 526 clock-drift notices match controller stops. Alternative: control."
+Icing (dev. electr. power),warning,external,6682,52,External stop (climate) (6),Weather; service category 'External stop (climate) (6)'.
+Time sync. failed (SNTP error),warning,external,7325,42,Warnings (27),As above.
+Overload generator fan 1,warning,generator,2550,434,Warnings (27),
+Overload generator fan 2,warning,generator,2650,309,Warnings (27),
+Overload generator fan 3,warning,generator,2655,286,Warnings (27),
+Overload generator heating,warning,generator,2674,269,Warnings (27),
+High temp. gen. bearing 1,warning,generator,2600,12,Warnings (27),
+Battery charge cycle axis 1 error,warning,pitch,716,974,Warnings (27),Pitch back-up batteries.
+Battery charge cycle axis 2 error,warning,pitch,717,931,Warnings (27),
+Battery charge cycle axis 3 error,warning,pitch,718,931,Warnings (27),
+Pitch measuring system 1><2,warning,pitch,675,269,Warnings (27),
+Error brake resistor CHP,warning,pitch,785,235,Warnings (27),"AMBIGUOUS and high-volume (235 warnings). 'CHP' = chopper brake resistor. Code 785 sits between the pitch battery block (700-735) and the pitch lubrication pump (850), and the MM82/92 pitch drives have their own braking chopper, so assigned to `pitch`. A converter DC-link chopper reading is equally defensible. Alternatives: converter, brake_hydraulic. FLAGGED for orchestrator review."
+Pitch batteries charging cycle,warning,pitch,720,225,Warnings (27),
+Limit switch error 95° axis 2,warning,pitch,682,83,Warnings (27),
+Timeout B sensor active,warning,pitch,697,77,Warnings (27),Code 697 sits inside the pitch block (650-697); 'B sensor' is the pitch limit sensor.
+Limit switch error 95° axis 3,warning,pitch,683,70,Warnings (27),
+Limit switch error 95° axis 1,warning,pitch,681,57,Warnings (27),95 deg = feathered blade position.
+Error lubrication pump pitch,warning,pitch,850,47,Warnings (27),
+Battery monitoring axis 2,warning,pitch,712,8,Warnings (27),
+Battery monitoring test interval,warning,pitch,714,5,Warnings (27),
+Battery monitoring axis 1,warning,pitch,711,4,Warnings (27),
+Battery monitoring axis 3,warning,pitch,713,4,Warnings (27),
+Max. acceleration,warning,tower,59,185,Operating states  (28),Nacelle/tower acceleration limit - the warning counterpart of the tower-oscillation stops.
+Nat. tower freq. implausible,warning,tower,4502,25,Warnings (27),
+High yaw motor current,warning,yaw,6052,1310,Warnings (27),
+Easy yaw,warning,yaw,6054,137,Warnings (27),Yaw-control operating mode fault.
+Check nacelle position!,warning,yaw,6350,34,Warnings (27),Nacelle position is the yaw system's controlled variable.
+4-20mA yaw current sensor,warning,yaw,6432,18,Sensor error (21),

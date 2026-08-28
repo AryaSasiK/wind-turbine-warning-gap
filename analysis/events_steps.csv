@@ -1,0 +1,9 @@
+step,rows,note
+status rows (pooled log),1569087,
+  rows with a trailing-space Message (stripped),25,
+Status=='Stop' AND IEC=='Forced outage',6366,"PROFILE §3 headline: 6,366"
+  ...with both timestamps (open-ended stops dropped),6355,11 open-ended
+  ...with end >= start,6354,1 negative-duration row(s) dropped (malformed Duration; PROFILE §3 misses these)
+  ...after dropping exact duplicates,6351,3 dropped (split Penmanshiel 2023 zips overlap)
+  ...after commissioning exclusion,6058,"293 pre-COD stops, 2,119.8 MWh"
+MERGED events (overlapping/nested intervals per turbine),6050,8 stops absorbed into an earlier event

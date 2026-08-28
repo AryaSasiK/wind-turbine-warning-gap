@@ -1,0 +1,8 @@
+step,rows
+status rows (pooled log),1569087
+Status == 'Warning',19948
+  ...with a parseable start timestamp,19948
+  ...with end >= start where an end exists,19948
+  ...after de-duplication,19150
+"  of which pre-commissioning (flagged, NOT dropped)",1357
+  post-commissioning warnings,17793

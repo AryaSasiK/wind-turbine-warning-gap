@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.env
+wind-turbine-warning-gap-data/
+*.parquet
+.DS_Store
