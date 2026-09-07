@@ -1,6 +1,6 @@
 # The Actionable-Warning Gap — analysis pipeline
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22141125.svg)](https://doi.org/10.5281/zenodo.22141125)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22650035.svg)](https://doi.org/10.5281/zenodo.22650035)
 
 Code and frozen artefacts behind the paper:
 
@@ -59,9 +59,16 @@ fully extracts them. `data/MANIFEST.json` holds the MD5s of every file used.
       the 23 headline events and the 20 largest events (v1.5, NOT pre-registered)
   19. `warning_rows_by_family.py` — Table I warning-supply column on the
       de-duplicated, post-commissioning basis
+  20. `dynamics_sensitivity.py` — dynamics statistics at eligibility floors of
+      1, 2 and 3 matching rows, with inclusion flow (v1.6a)
+  21. `block_bootstrap.py` — turbine-year block bootstrap on the headline (v1.6b)
+  22. `merged_events_audit.py` — constituent-level audit of the three
+      multi-constituent events and the displayed-family-only rule (v1.6c)
+  23. `add_tier_variant.py` — adds `tier_variant` to `events_summary.csv`
+      without rebuilding events (v1.6d)
   - `component_map.csv` — the frozen message→family map (do not edit)
   - `RESULTS.md`, `RESULTS_v13.md`, `RESULTS_v14.md`, `RESULTS_v15.md`,
-    `RESULTS_warning_dedup.md`, `checks.md` — source of truth for every number
+    `RESULTS_v16.md`, `RESULTS_warning_dedup.md`, `checks.md` — source of truth for every number
     in the paper; `RESULTS.md` carries dated errata
   - `ARTEFACT_KEY.md` — which label in each CSV selects the primary population
     (plain `T2` is the narrow-grid variant in some files; read this first)
@@ -76,13 +83,17 @@ fully extracts them. `data/MANIFEST.json` holds the MD5s of every file used.
 
 ## Versions
 
-- v1.0 (2026-08-28): pipeline at STUDY_DESIGN v1.2, frozen before outcomes.
-- v1.1 (2026-09-07): adds the v1.3 analyses (pre-registered 2026-09-03 after
+- v1.0 (2026-08-28, 10.5281/zenodo.22141125): pipeline at STUDY_DESIGN v1.2, frozen before outcomes.
+- v1.1 (2026-09-07, 10.5281/zenodo.22650035): adds the v1.3 analyses (pre-registered 2026-09-03 after
   external feedback, before computation), the v1.4 robustness checks
   (pre-registered 2026-09-03 after a cross-model review, before computation),
   the v1.5 map adjudication (2026-09-06, post hoc, labelled so), the claim
   ledger, the Table I basis correction (RESULTS.md erratum 2026-09-06), the
   dataset scout, and the Hill of Towie code inventory.
+- v1.2 (unreleased, on `main`): adds the v1.6 analyses (pre-registered
+  2026-09-07 after the second cross-model review, before computation): dynamics
+  floor sensitivity, turbine-year block bootstrap, merged-event audit,
+  `tier_variant` column; STUDY_DESIGN v1.6 and its dated wording qualifications.
 
 ## Reproducing
 

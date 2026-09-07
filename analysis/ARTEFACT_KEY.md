@@ -55,7 +55,10 @@ at all, so those files are single-population by construction.
 | `map_sensitivity.csv` | no tier column; tier membership is never re-derived, so the denominator is invariant across all 1,152 variant rows | 4,213 (constant) | n/a |
 | `late_warning_all.csv` | `population=="T2_wide_grid_warned"` | 979 warned of 4,213 | No - explicitly named |
 | `claim_ledger.csv` | no tier column; free-text `claim` strings only | text quotes 4,213 throughout | No |
-| `events_summary.csv` | **no primary row exists in this file** | - | **YES - see below** |
+| `events_summary.csv` | **no primary row exists in this file**; since 2026-09-07 the `tier_variant` column labels each row (`n/a`, `narrow`) | - | **YES - see below** |
+| `dynamics_sensitivity.csv` | no tier column; single population; `table=="statistics"` with `rule` and `min_warning_rows` | subsets of the 979 (same) / 2,652 (any) warned of 4,213 | n/a |
+| `block_bootstrap.csv` | no tier column; `analysis=="bootstrap_turbine_year_block"` (the two `*_quoted` rows are copies of `bootstrap.csv` and `cluster_robustness.csv`) | 4,213 | n/a |
+| `merged_events_audit.csv` | no tier column; the 3 multi-constituent events only, plus one `table=="headline"` row over all 4,213 | 3 of 4,213 | n/a |
 | `attribution_summary.csv` | `tier=="T2_wide_grid"` | 4,213 | **YES - see below** |
 | `controls_summary.csv` | no tier column; this file is **T0**, not T2 | 6,050 | **YES - see below** |
 
@@ -66,6 +69,20 @@ at all, so those files are single-population by construction.
 population appears nowhere in the file, so there is nothing in it to cross-check
 against. Any headline event count or lost-energy total quoted from this file is the
 wrong population. Same for its `T1` row (4,635, narrow).
+
+*Relabelled 2026-09-07 (STUDY_DESIGN v1.6(d)).* The file now carries a
+`tier_variant` column: `n/a` for `T0` (no grid rule applies - T0 is every
+forced-outage event), `narrow` for `T1` and `T2`, and `wide_grid` reserved for
+`T1_wide_grid` / `T2_wide_grid` rows should a future re-run emit them. The column was
+added **by a post-processor, `add_tier_variant.py`, not by re-running the writer**:
+`build_events.py` owns this file, and re-running it would rebuild every merged
+event's lost energy from the 10-minute SCADA cache (6,050 merged plus 6,053
+constituent windows) and rewrite the frozen `events.parquet` on the read-only derived
+volume, which the relabel does not warrant. No row was added and no existing value
+changed - the script asserts both, and gates on the frozen numbers plus the narrow
+`T2` cell (4,238 / 9,635.6) before touching the file. So the warning above still
+stands in full: **this file still has no primary (wide-grid) row**; the column only
+makes it impossible to misread the rows it does have.
 
 **`attribution_summary.csv` - a trap with an escape hatch.** It carries four tiers:
 `T0`, `T1`, `T2` and `T2_wide_grid`. `tier=="T2"` is the **narrow** variant

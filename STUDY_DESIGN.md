@@ -137,6 +137,30 @@ undocumented; mitigated by the ยง5 validation. Jan 2023 hole (Penmanshiel WT01โ€
   sits in outages resolved faster than 6 h), the paper re-anchors its headline on
   the data-derived p50 threshold and says so; otherwise 6 h stays primary with
   the curve as the general result.
+- v1.6 2026-09-07 (pre-computation; motivated by the GPT-5.6 round-2 referee report,
+  received 2026-09-07 - NOT by any outcome seen). Frozen definitions unchanged; primary
+  cell unchanged. Additions, each a robustness or audit artefact the report asked for:
+  (a) **Dynamics eligibility sensitivity.** The per-event rate-ratio and Laplace
+      statistics of v1.3(c) were computed on events with >=3 matching warning rows,
+      a floor fixed at implementation. Recompute at floors >=1, >=2, >=3 and report
+      an inclusion flow (events, MWh at each floor) with a declared convention: a
+      zero prior-48h count with a positive final-24h count is an infinite ratio and
+      counts as "ratio > 1" and "ratio >= 2"; events with zero rows in both windows
+      are undefined and excluded at every floor. The >=3 cell stays the reported one
+      only if the direction of the result holds at >=1 and >=2.
+  (b) **Turbine-year block bootstrap.** Variant of the two-level bootstrap that
+      resamples turbines, then turbine-years within turbine as blocks (events inside
+      a block kept together), for the headline actionable-unacted share; 10,000
+      reps, seed 20260907. Answers the within-turbine temporal-exchangeability
+      objection; reported next to the unstratified and farm-stratified intervals.
+  (c) **Merged-event audit.** For the 3 merged events with more than one
+      constituent: constituents, tier survival, displayed family, same-component
+      matches, energy, headline class, and the headline under the alternative rule
+      "displayed family only may match".
+  (d) **Artefact relabel.** `events_summary.csv` gains a `tier_variant` column
+      (narrow vs wide_grid) so plain T1/T2 rows cannot be misread as the primary cell.
+  Also appended below the changelog: dated qualifications (not rewrites) of the frozen
+  text's "operator-visible" and "realistic" wording, per the report.
 - v1.5 2026-09-06 (POST HOC - logged after computation, not pre-registered; run
   because the GPT-5.6 referee asked "at minimum" for an independent review of the
   map entries behind the 23 headline events and the top energy events, which v1.4(a)
@@ -175,3 +199,16 @@ undocumented; mitigated by the ยง5 validation. Jan 2023 hole (Penmanshiel WT01โ€
   (d) **Claim ledger.** Export an artefact tracing every manuscript number not
       already in a summary CSV (top-200 energy share, zero-energy event counts,
       exact-anchor control rate, duration-bucket counts, at-risk event counts).
+
+
+## Dated qualifications of frozen wording (appended 2026-09-07; frozen text above unchanged)
+
+- Lines describing Warning rows as "operator-visible" / "operator-visible by construction"
+  and the study as measuring what "existing sensing already flagged" were design
+  ASSUMPTIONS about the Greenbyte platform, not observed properties. The export shows
+  that a row was recorded; it does not show presentation, delivery, acknowledgement or
+  use. The paper (from the 2026-09-07 revision) says "logged" throughout and defines
+  actionable-unacted as a timing classification of logged rows.
+- The v1 text calling T_act = 6 h "realistic" was a scenario choice. Post-failure outage
+  duration (v1.3a) benchmarks the horizon against how long outages last; it does not
+  validate that six pre-failure hours suffice to diagnose, dispatch and prevent.
