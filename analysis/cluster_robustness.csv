@@ -1,0 +1,24 @@
+analysis,scope,farm,turbine_id,n_events,E_mwh,point_pct,ci_lo_pct,ci_hi_pct,boot_mean_pct,boot_sd_pp,reps,seed,n_finite_reps,shift_pp,note
+bootstrap_farm_stratified,all,,,4213,9386.501584975991,7.528169493855308,1.9786138306990022,16.388058987147996,7.580490535800462,3.8188801359008893,10000.0,20260904.0,10000.0,,"turbines resampled within farm (6 Kelmarsh, 14 Penmanshiel), then events within turbine; percentile 95% CI"
+bootstrap_unstratified_quoted,all,,,4213,9386.501584975991,7.5281694938553,1.9465420331056498,16.717062541110888,7.51687387351906,3.88035859209911,10000.0,20260827.0,10000.0,,"QUOTED verbatim from bootstrap.csv, not recomputed"
+leave_one_turbine_out,drop_turbine,penmanshiel,4.0,206,597.5200688054791,5.605986354535414,,,,,,,,-1.922183139319894,dropped turbine carried 28 actionable events / 213.9 MWh
+leave_one_turbine_out,drop_turbine,penmanshiel,7.0,132,501.2211178686521,5.769422647836439,,,,,,,,-1.7587468460188687,dropped turbine carried 19 actionable events / 194.0 MWh
+leave_one_turbine_out,drop_turbine,penmanshiel,15.0,282,440.3144758432256,7.1598915049254055,,,,,,,,-0.36827798892990204,dropped turbine carried 24 actionable events / 66.1 MWh
+leave_one_turbine_out,drop_turbine,penmanshiel,13.0,193,399.54538481840723,7.323034808740912,,,,,,,,-0.20513468511439564,dropped turbine carried 15 actionable events / 48.5 MWh
+leave_one_turbine_out,drop_turbine,kelmarsh,1.0,209,166.2926648087678,7.4478190206193995,,,,,,,,-0.08035047323590866,dropped turbine carried 60 actionable events / 19.9 MWh
+leave_one_turbine_out,drop_turbine,penmanshiel,5.0,175,522.4496817418635,7.609783799589964,,,,,,,,0.08161430573465633,dropped turbine carried 34 actionable events / 32.1 MWh
+leave_one_turbine_out,drop_turbine,penmanshiel,9.0,187,190.3943532931833,7.627359279843536,,,,,,,,0.0991897859882282,dropped turbine carried 7 actionable events / 5.2 MWh
+leave_one_turbine_out,drop_turbine,kelmarsh,2.0,162,151.06857101415562,7.6293099077055615,,,,,,,,0.10114041385025363,dropped turbine carried 5 actionable events / 2.0 MWh
+leave_one_turbine_out,drop_turbine,kelmarsh,3.0,80,157.0401237074409,7.656261980461035,,,,,,,,0.12809248660572703,dropped turbine carried 0 actionable events / 0.0 MWh
+leave_one_turbine_out,drop_turbine,penmanshiel,14.0,140,232.59027592218555,7.719451554675903,,,,,,,,0.19128206082059535,dropped turbine carried 10 actionable events / 0.0 MWh
+leave_one_turbine_out,drop_turbine,penmanshiel,8.0,327,241.13101816404566,7.725782537135357,,,,,,,,0.19761304328004964,dropped turbine carried 110 actionable events / 0.1 MWh
+leave_one_turbine_out,drop_turbine,penmanshiel,11.0,357,1106.2494379477216,7.73954305787162,,,,,,,,0.21137356401631224,dropped turbine carried 46 actionable events / 65.8 MWh
+leave_one_turbine_out,drop_turbine,penmanshiel,12.0,415,440.49242616773154,7.784118013100557,,,,,,,,0.25594851924524986,dropped turbine carried 151 actionable events / 10.3 MWh
+leave_one_turbine_out,drop_turbine,penmanshiel,1.0,130,384.3836264990216,7.845837766011329,,,,,,,,0.31766827215602145,dropped turbine carried 2 actionable events / 0.3 MWh
+leave_one_turbine_out,drop_turbine,kelmarsh,4.0,138,700.3131221840644,7.920798309746366,,,,,,,,0.3926288158910579,dropped turbine carried 12 actionable events / 18.6 MWh
+leave_one_turbine_out,drop_turbine,kelmarsh,6.0,151,486.9665923065351,7.9392123825095595,,,,,,,,0.4110428886542519,dropped turbine carried 1 actionable events / 0.1 MWh
+leave_one_turbine_out,drop_turbine,kelmarsh,5.0,337,731.4844193064303,7.98209509325912,,,,,,,,0.45392559940381216,dropped turbine carried 154 actionable events / 15.8 MWh
+leave_one_turbine_out,drop_turbine,penmanshiel,6.0,179,699.8752113189784,8.002008095070174,,,,,,,,0.4738386012148668,dropped turbine carried 10 actionable events / 11.5 MWh
+leave_one_turbine_out,drop_turbine,penmanshiel,10.0,108,601.7852006463809,8.043876636938606,,,,,,,,0.515707143083298,dropped turbine carried 0 actionable events / 0.0 MWh
+leave_one_turbine_out,drop_turbine,penmanshiel,2.0,305,635.3838126117223,8.047718979033634,,,,,,,,0.5195494851783264,dropped turbine carried 10 actionable events / 2.4 MWh
+leave_one_turbine_out_summary,all,,,4213,9386.501584975991,7.528169493855308,5.605986354535414,8.047718979033634,,,,,,1.922183139319894,min/max over the 20 leave-one-turbine-out refits; most influential penmanshiel WT04 (-1.922 pp)

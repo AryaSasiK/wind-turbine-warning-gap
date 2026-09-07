@@ -44,9 +44,45 @@ fully extracts them. `data/MANIFEST.json` holds the MD5s of every file used.
   9. `cluster_duration.py` — cluster-robust CI on the warned/unwarned
      duration contrast
   10. `figures.py` — the paper's figures
+  11. `duration_grounding.py` — outage-duration distribution and the actionable
+      share as a curve over T_act (STUDY_DESIGN v1.3a; `duration_grounding.csv`,
+      `tact_curve.csv`, `lead_vs_duration.csv`)
+  12. `leadtime_box.py` — lead-time distribution by component (v1.3b)
+  13. `warning_dynamics.py` — warning-rate profile before failure vs matched
+      controls, per-event rate ratio and Laplace trend (v1.3c)
+  14. `map_sensitivity.py` — headline under every documented alternative
+      component-map assignment, 1,152 variants (v1.4a)
+  15. `late_warning_all.py` — all-events late-warning statistic (v1.4b)
+  16. `cluster_robustness.py` — farm-stratified bootstrap and leave-one-turbine-out (v1.4c)
+  17. `claim_ledger.py` — traces every manuscript-only number to the data (v1.4d)
+  18. `map_adjudication.py` — post hoc line-by-line review of map entries behind
+      the 23 headline events and the 20 largest events (v1.5, NOT pre-registered)
+  19. `warning_rows_by_family.py` — Table I warning-supply column on the
+      de-duplicated, post-commissioning basis
   - `component_map.csv` — the frozen message→family map (do not edit)
-  - `RESULTS.md` / `checks.md` — source of truth for every number in the paper
+  - `RESULTS.md`, `RESULTS_v13.md`, `RESULTS_v14.md`, `RESULTS_v15.md`,
+    `RESULTS_warning_dedup.md`, `checks.md` — source of truth for every number
+    in the paper; `RESULTS.md` carries dated errata
+  - `ARTEFACT_KEY.md` — which label in each CSV selects the primary population
+    (plain `T2` is the narrow-grid variant in some files; read this first)
   - small summary CSVs — the computed outputs the paper quotes
+- `data/DATASET_SCOUT.md` — the search protocol and verdicts for every candidate
+  open dataset considered for replication.
+- `data/hill-of-towie/` — a public inventory of every alarm code observed in the
+  open Hill of Towie dataset (RES, Zenodo 10.5281/zenodo.20204946, CC-BY-4.0),
+  built from the open files only by `analysis/hot_alarm_inventory.py` /
+  `hot_zipranged.py`; posted as
+  https://github.com/resgroup/hill-of-towie-open-source-analysis/discussions/80.
+
+## Versions
+
+- v1.0 (2026-08-28): pipeline at STUDY_DESIGN v1.2, frozen before outcomes.
+- v1.1 (2026-09-07): adds the v1.3 analyses (pre-registered 2026-09-03 after
+  external feedback, before computation), the v1.4 robustness checks
+  (pre-registered 2026-09-03 after a cross-model review, before computation),
+  the v1.5 map adjudication (2026-09-06, post hoc, labelled so), the claim
+  ledger, the Table I basis correction (RESULTS.md erratum 2026-09-06), the
+  dataset scout, and the Hill of Towie code inventory.
 
 ## Reproducing
 

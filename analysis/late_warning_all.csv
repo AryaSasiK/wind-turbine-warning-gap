@@ -1,0 +1,15 @@
+rule,population,metric,n_events,E_mwh,pct_of_warned_events,pct_of_warned_energy,denom_n_events,denom_E_mwh,note
+same,T2_wide_grid_warned,warned_total,979,1522.7825116291824,100.0,99.99999999999999,979,1522.7825116291824,denominator
+same,T2_wide_grid_warned,every_warning_inside_final_24h,379,1217.1291246391136,38.71297242083759,79.92796839628406,979,1522.7825116291824,v1.4(b) headline: no in-window warning earlier than 24 h before the stop
+same,T2_wide_grid_warned,earliest_warning_inside_final_24h,379,1217.1291246391136,38.71297242083759,79.92796839628406,979,1522.7825116291824,"identical set to the row above, computed from the lead (lead < 24 h)"
+same,T2_wide_grid_warned,lead_ge_24h,600,305.6533869900689,61.28702757916241,20.072031603715942,979,1522.7825116291824,complement; cross-checks leadtime_stats.csv frac_ge_24h
+same,T2_wide_grid_warned,every_warning_inside_final_6h,281,816.1507627687749,28.70275791624106,53.596016275206495,979,1522.7825116291824,companion at T_act = 6 h
+same,T2_wide_grid_warned,trend_eligible_subset_ge3rows,799,840.5458725555463,81.61389172625128,55.19802507163481,979,1522.7825116291824,"coverage of the v1.3(c) >=3-row subset, for the v1.4(b) disclosure"
+same,T2_wide_grid_warned,trend_eligible_and_every_warning_inside_final_24h,229,725.6928499895764,23.391215526046988,47.65571212222407,979,1522.7825116291824,"the v1.3(c) 'zero rows before the last 24 h' events, subset only"
+any,T2_wide_grid_warned,warned_total,2652,4420.804773719382,100.0,100.0,2652,4420.804773719382,denominator
+any,T2_wide_grid_warned,every_warning_inside_final_24h,1160,1825.5099686275946,43.74057315233786,41.29361195680504,2652,4420.804773719382,v1.4(b) headline: no in-window warning earlier than 24 h before the stop
+any,T2_wide_grid_warned,earliest_warning_inside_final_24h,1160,1825.5099686275946,43.74057315233786,41.29361195680504,2652,4420.804773719382,"identical set to the row above, computed from the lead (lead < 24 h)"
+any,T2_wide_grid_warned,lead_ge_24h,1492,2595.2948050917867,56.25942684766214,58.70638804319494,2652,4420.804773719382,complement; cross-checks leadtime_stats.csv frac_ge_24h
+any,T2_wide_grid_warned,every_warning_inside_final_6h,829,1198.284242117359,31.25942684766214,27.105567955429063,2652,4420.804773719382,companion at T_act = 6 h
+any,T2_wide_grid_warned,trend_eligible_subset_ge3rows,1752,2350.237351231153,66.0633484162896,53.163111051696895,2652,4420.804773719382,"coverage of the v1.3(c) >=3-row subset, for the v1.4(b) disclosure"
+any,T2_wide_grid_warned,trend_eligible_and_every_warning_inside_final_24h,553,1020.4213262898706,20.852187028657617,23.082252633186368,2652,4420.804773719382,"the v1.3(c) 'zero rows before the last 24 h' events, subset only"

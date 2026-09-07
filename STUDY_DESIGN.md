@@ -115,3 +115,63 @@ undocumented; mitigated by the §5 validation. Jan 2023 hole (Penmanshiel WT01�
   two-level cluster bootstrap 95% CI on the median difference instead of the
   Mann–Whitney p-values, which assumed event independence across the 20-turbine
   cluster structure. Point estimates unchanged; `analysis/cluster_duration.py`.
+- v1.3 2026-09-03 (pre-computation; motivated by external reviewer feedback (call with an
+  LBNL researcher, 2026-09-03) — NOT by any outcome seen). Three descriptive analyses added; the frozen event/attribution/control
+  definitions are unchanged and T_act = 6 h remains the primary cell so all v1.1
+  numbers stay comparable:
+  (a) **Downtime-duration grounding.** Distribution of T2 outage durations
+      (count- and energy-weighted quantiles; histogram, overall and per family).
+      The actionable-unacted share is additionally reported as a continuous curve
+      in T_act over 0.5–72 h with cluster-bootstrap band, read at data-derived
+      reference points = the energy-weighted p25/p50/p75 of T2 outage duration.
+      Per-event lead-vs-duration comparison: share of warned lost energy whose
+      lead exceeds the outage's own eventual duration.
+  (b) **Lead-time dispersion.** Box-whisker of lead-time distributions (both
+      rules; per component family for same-component), complementing the ECDF.
+  (c) **Warning dynamics before failure.** Pooled profile of warning-row rate vs
+      time-to-event over the 72 h window (events vs matched controls), plus a
+      per-event trend statistic (Laplace/rate-ratio test of last-24 h vs prior
+      48 h) reporting the fraction of warned events with accelerating warnings.
+  Decision rule stated in advance for (a): if the duration evidence shows 6 h is
+  indefensible as a conservative floor (e.g. the majority of warned lost energy
+  sits in outages resolved faster than 6 h), the paper re-anchors its headline on
+  the data-derived p50 threshold and says so; otherwise 6 h stays primary with
+  the curve as the general result.
+- v1.5 2026-09-06 (POST HOC - logged after computation, not pre-registered; run
+  because the GPT-5.6 referee asked "at minimum" for an independent review of the
+  map entries behind the 23 headline events and the top energy events, which v1.4(a)
+  did not do). `analysis/map_adjudication.py` -> `map_adjudication.csv`,
+  `map_adjudication_summary.csv`. Reads every stop/warning message behind the 23
+  (lead>=6h & duration>=6h quadrant) and the top-20 energy events, records whether
+  each sits in a v1.4 sweep slot or a thin-rationale entry, and an independent
+  family call from message text. Result: four disagreements (`WEC shut down`
+  control->never-match; `Error brake resistor CHP` pitch->converter; `Overload
+  generator heating` generator->auxiliary; `Parameter outside limits`
+  control->never-match); first two already swept; the two new ones jointly give
+  5.07% vs 7.53% (0.03 pp below the v1.4 sweep floor, inside the frozen CI). Frozen
+  map unchanged; reported in the paper as a post hoc audit.
+- v1.4 2026-09-03 (pre-computation; motivated by cross-model adversarial review —
+  GPT-5.6 referee pass on the full artefact bundle — NOT by any outcome seen).
+  Frozen definitions unchanged; primary cell unchanged. Additions:
+  (a) **Component-map sensitivity.** The frozen map stays the primary map. For every
+      map entry whose recorded rationale documents a plausible alternative family
+      (the five ambiguous calls flagged at the v1.1 freeze, plus `WEC shut down`
+      control-vs-manual and `Error brake resistor CHP` pitch-vs-converter/brake),
+      recompute the primary decomposition, the converter same-component coverage,
+      and the classification of the top-10 energy events under each single flip and
+      under the most-adverse joint combination. Report the range next to the
+      headline.
+  (b) **All-warned-events late-warning statistic.** Share of same-component-warned
+      T2 lost energy (all 979 events, no eligibility restriction) from events whose
+      every in-window same-component warning lies inside the final 24 h. Replaces
+      the subset-only support for the "silent until the last day" reading.
+      Disclosure: the >=3-matching-rows eligibility rule in v1.3(c)'s per-event
+      trend statistics was an implementation reading (a rate ratio is undefined on
+      fewer rows), not pre-registered; it is now documented, and the paper must
+      state the subset's coverage (799 of 979 events; 840.5 of 1,522.8 MWh).
+  (c) **Small-cluster inference robustness.** Farm-stratified variant of the
+      two-level bootstrap (resample turbines within farm) and leave-one-turbine-out
+      range for the headline actionable-unacted share.
+  (d) **Claim ledger.** Export an artefact tracing every manuscript number not
+      already in a summary CSV (top-200 energy share, zero-energy event counts,
+      exact-anchor control rate, duration-bucket counts, at-risk event counts).

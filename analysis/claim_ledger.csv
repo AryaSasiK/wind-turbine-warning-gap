@@ -1,0 +1,15 @@
+claim_id,claim,paper_location,paper_value,computed_value,unit,abs_diff,tolerance,verdict,note
+C1,the 200 largest T2 events carry 83.3% of T2 lost energy,"main.tex L301 (Methods, concentration)",83.3,83.27692727797694,% of T2 MWh,0.0230727220230591,0.05,REPRODUCES,top-200 by E_mwh within T2 wide-grid; ties are immaterial (201st = 7.117 MWh)
+C2a,"1,745 of the 4,213 T2 events carry zero measured energy",main.tex L281 (measurement grid),1745.0,1745.0,events,0.0,0.0,REPRODUCES,E_mwh exactly 0.0 - the merged window contains no 10-min bin start
+C2b,...which is 41.4% of T2 events,main.tex L281 (derived),41.4,41.419416093045335,% of T2 events,0.019416093045336424,0.05,REPRODUCES,
+C3a,controls match for 99.2% of T2 events,main.tex L330,99.2,99.21671018276761,% of T2 events,0.016710182767610604,0.05,REPRODUCES,"NOTE: controls_summary.csv's 99.42% is over all 6,050 T0 events; the paper's figure is the T2 wide-grid subset, which is what is recomputed here"
+C3b,70.8% of T2 controls sit at the exact -45 d anchor,main.tex L330,70.8,70.75718015665797,% of T2 events,0.042819843342030595,0.05,REPRODUCES,"denominator is all 4,213 T2 events (unmatched count as not-at-anchor), matching controls_summary.csv's convention; 33 T2 events are unmatched"
+C4,"n = 1,870 T2 outages shorter than ten minutes (fig. 3 bucket 1)",main.tex L359 / fig3,1870.0,1870.0,events,0.0,0.0,REPRODUCES,"figures.py::fig3 EDGES [0, 1/6, 1, 6, 24, inf], np.digitize right=False; full bucket vector <10 min=1,870, 10 min-1 h=1,735, 1-6 h=345, 6-24 h=147, >=24 h=116"
+C5a,698 actionable-unacted T2 events,main.tex L491/L599,698.0,698.0,events,0.0,0.0,REPRODUCES,
+C5b,532 of the 698 actionable events carry zero measured energy,main.tex L491,532.0,532.0,events,0.0,0.0,REPRODUCES,this is the count-weighted/energy-weighted divergence at its source
+C5c,166 of the 698 carry the 706.6 MWh at risk,main.tex L599,166.0,166.0,events,0.0,0.0,REPRODUCES,complement of C5b: 698 - 532 = 166
+C5d,the actionable-unacted energy at risk is 706.6 MWh,main.tex L599,706.6,706.6317488604076,MWh,0.03174886040756064,0.05,REPRODUCES,also in counterfactual.csv; recomputed here as the anchor for C5b/C5c
+C6a,397 manual-only merged events,main.tex L329,397.0,397.0,events,0.0,0.0,REPRODUCES,
+C6b,"manual-only events carry 2,321.7 MWh",main.tex L329,2321.7,2321.6871851787873,MWh,0.012814821212487004,0.05,REPRODUCES,
+C6c,manual-only energy is 19.2% of T0 lost energy,main.tex L329,19.2,19.187892808073567,% of T0 MWh,0.012107191926432392,0.05,REPRODUCES,"T0 denominator 12,099.8 MWh"
+C7,excluding zero-energy events the count-weighted actionable share falls to 6.7%,main.tex L492,6.7,6.726094003241491,% of nonzero-E T2 events,0.026094003241491137,0.05,REPRODUCES,"2,468 T2 events carry nonzero measured energy"

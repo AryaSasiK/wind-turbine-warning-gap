@@ -349,6 +349,12 @@ Count-weighted the ordering **reverses**: Kelmarsh 21.54 % actionable vs Penmans
 Kelmarsh's warned events are numerous but tiny; Penmanshiel's are fewer but carry energy. With
 10 turbines per site and CIs of the width in §1, this is a heterogeneity flag, not an
 estimate of a site effect — present it as such.
+**[ERRATUM 2026-09-04, caught by cross-model review: "10 turbines per site" is wrong —
+Kelmarsh has 6 turbines, Penmanshiel 14 (20 total). The per-farm shares above are
+unaffected (computed from the actual per-farm event sets); only this prose slipped.
+Paper wording fixed to "six and fourteen turbines".]**
+
+**[ERRATUM 2026-09-06, caught by GPT-5.6 round-2 review: Table I's warning-supply column (warning rows per turbine-year) and the prose counts derived from it were computed on all 19,150 de-duplicated warning rows, 1,357 of which fall before the farms' commercial-operation dates, although stop events are cut at those dates. Consistent basis: 17,793 rows over 166.9 turbine-years. Seven of ten printed cells move (pitch 22.0->21.4, converter 0.5->0.3, drivetrain 2.3->2.1, generator 7.4->7.3, electrical 0.4->0.2, anemometry 24.3->22.7, brake/hydraulic 14.8->14.5); 'only 80 converter warning rows' -> 44; six-family supply share 83.6% -> 83.7%. Matching is unaffected: only 10 pre-COD rows fall inside any event's 72 h lookback, all alongside post-COD warnings, so no warned share, lead or energy figure changes. Details: RESULTS_warning_dedup.md sections G-M; warning_rows_by_family.csv columns rows_dedup_cod / per_ty_dedup_cod.]**
 
 ---
 
