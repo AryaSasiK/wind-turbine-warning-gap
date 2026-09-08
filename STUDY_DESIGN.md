@@ -256,3 +256,26 @@ frozen text and earlier notes call "actionable-unacted" is, from v1.7 (2026-09-0
 "long-lead" in the paper and figures; the CSV key `actionable_unacted` is unchanged and is
 documented in analysis/ARTEFACT_KEY.md.
 
+## Dated note on implementation conventions absent from the frozen text (2026-09-07, after the GPT-5.6 round-5 report)
+
+Three conventions that the paper relies on were fixed in code, not in this file, and are
+therefore non-prespecified implementation choices. None was chosen after an outcome was seen.
+
+- **Control re-draw cap, +-10 d** (controls.py, `MAX_DEVIATION_D = 10`, file dated
+  2026-08-27 03:09, the stage-2 run; the stage-2 summary CSVs are dated 03:10, so the mtime
+  cannot by itself order the cap against the first computed share). The v1.1 text gives the
+  re-draw sequence 45, 44, 46, ... and no cap. Recorded at the time in RESULTS.md section 6a
+  ("labelled implementation-reading sensitivities": "neither was chosen after seeing
+  outcomes"). Binds for 35 of 6,050 events (0.58%) at -45 d.
+- **E_i = 0 for a window containing no 10-minute bin start** (build_events.py, window sliced
+  [t0, t1] on the bin start-timestamp; file dated 2026-08-27 02:48, stage 1; the v1.1 freeze
+  is dated to the day only, so no ordering against it is claimed; the convention predates
+  any warned share). The convention was chosen because it
+  reproduces Greenbyte's own `Lost Production to Downtime` to a ratio of 1.0004 (PROFILE
+  section 5, checks.md); it is not stated in the frozen text. Affects 1,745 of 4,213 T2 events
+  (41.4%), overwhelmingly sub-10-minute stops.
+- **The v1.6(a) ">99% of energy" gate** (see the dated note on the v1.6(a) retention rule
+  above): v1.6 prose says only that "the direction" must hold at floors >=1 and >=2; the
+  majority-of-events AND >99%-of-energy encoding is code-defined, fixed before computation,
+  and is now described in the paper as a code-defined implementation rule, not as
+  prespecified.
