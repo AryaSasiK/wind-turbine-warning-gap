@@ -1,6 +1,6 @@
 # The Actionable-Warning Gap — analysis pipeline
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22653906.svg)](https://doi.org/10.5281/zenodo.22653906)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22654178.svg)](https://doi.org/10.5281/zenodo.22654178)
 
 Code and frozen artefacts behind the paper:
 
@@ -106,7 +106,7 @@ fully extracts them. `data/MANIFEST.json` holds the MD5s of every file used.
   Greek corpus count, figure class label "long-lead"; STUDY_DESIGN v1.7 and the
   dated note on the v1.6(a) retention rule.
 - v1.4 (2026-09-07, 10.5281/zenodo.22653906): no new analysis; Fig. 1 annotation wording, and a dated
-- v1.5 (2026-09-07): no new analysis; Fig. 5 x-axis label "Action horizon" -> "Lead-time threshold" in duration_grounding.py, stale comment in figures.py; README version list.
+- v1.5 (2026-09-07, 10.5281/zenodo.22654178): no new analysis; Fig. 5 x-axis label "Action horizon" -> "Lead-time threshold" in duration_grounding.py, stale comment in figures.py; README version list.
   global clarification in STUDY_DESIGN.md that historical "pre-registered"
   means internally dated "prespecified" and that "actionable-unacted" is now
   "long-lead".
