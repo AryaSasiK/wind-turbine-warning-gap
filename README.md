@@ -66,9 +66,15 @@ fully extracts them. `data/MANIFEST.json` holds the MD5s of every file used.
       multi-constituent events and the displayed-family-only rule (v1.6c)
   23. `add_tier_variant.py` — adds `tier_variant` to `events_summary.csv`
       without rebuilding events (v1.6d)
+  24. `warning_rows_by_family.py` (extended) — Table I rates on real
+      post-commissioning SCADA exposure, `per_ty_scada_cod` (v1.7a)
+  25. `map_adjudication_allfour.py` — explicit headline rows for every
+      adjudication scenario in `map_adjudication_summary.csv` (v1.7b)
+  26. `greek_log_counts.py` — full warning/alarm count of the SMD10TOWFGR
+      workbook (v1.7d; external corpus, not part of the pipeline)
   - `component_map.csv` — the frozen message→family map (do not edit)
   - `RESULTS.md`, `RESULTS_v13.md`, `RESULTS_v14.md`, `RESULTS_v15.md`,
-    `RESULTS_v16.md`, `RESULTS_warning_dedup.md`, `checks.md` — source of truth for every number
+    `RESULTS_v16.md`, `RESULTS_v17.md`, `RESULTS_warning_dedup.md`, `checks.md` — source of truth for every number
     in the paper; `RESULTS.md` carries dated errata
   - `ARTEFACT_KEY.md` — which label in each CSV selects the primary population
     (plain `T2` is the narrow-grid variant in some files; read this first)
@@ -94,6 +100,11 @@ fully extracts them. `data/MANIFEST.json` holds the MD5s of every file used.
   2026-09-07 after the second cross-model review, before computation): dynamics
   floor sensitivity, turbine-year block bootstrap, merged-event audit,
   `tier_variant` column; STUDY_DESIGN v1.6 and its dated wording qualifications.
+- v1.3 (2026-09-07): adds the v1.7 analyses (prespecified 2026-09-07 after the
+  third cross-model review, before computation): Table I rates on real SCADA
+  exposure (159.1 turbine-years), explicit adjudication-scenario rows, full
+  Greek corpus count, figure class label "long-lead"; STUDY_DESIGN v1.7 and the
+  dated note on the v1.6(a) retention rule.
 
 ## Reproducing
 

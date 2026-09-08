@@ -161,6 +161,27 @@ undocumented; mitigated by the ยง5 validation. Jan 2023 hole (Penmanshiel WT01โ€
       (narrow vs wide_grid) so plain T1/T2 rows cannot be misread as the primary cell.
   Also appended below the changelog: dated qualifications (not rewrites) of the frozen
   text's "operator-visible" and "realistic" wording, per the report.
+- v1.7 2026-09-07 (prespecified before computation; motivated by the GPT-5.6 round-3
+  report). Frozen definitions unchanged; primary cell unchanged. Four artefact-level
+  additions, each an exposure/labelling fix the report asked for:
+  (a) **Real Table I exposure denominator.** Replace the nominal 166.93 turbine-years
+      (171 file-years rescaled by 159.91/163.81) with elapsed post-COD SCADA exposure -
+      per turbine, the count of 10-minute SCADA grid bins at or after the farm COD that
+      lie within the turbine's status-log span - added as `turbine_years_scada_cod()` and
+      a `per_ty_scada_cod` column in `warning_rows_by_family.py/.csv` (existing columns
+      untouched); per-family rates reported in `analysis/RESULTS_v17.md`.
+  (b) **All-four map adjudication in an artefact.** `map_adjudication_summary.csv` gains
+      explicit rows for the frozen headline (7.528%), the two new disagreements jointly
+      (5.071%), all four jointly (5.441%), and each single disagreement alone, so the
+      5.441% quoted in the paper stops living only as prose in RESULTS_v15.md.
+  (c) **Figure label rename.** Display labels only in `figures.py`: "Actionable-unacted"
+      -> "Long-lead" (and any axis/legend "actionable" text), CSV keys unchanged;
+      affected figures regenerated and their printed numbers verified unchanged;
+      `ARTEFACT_KEY.md` records `actionable_unacted` = paper class "long-lead".
+  (d) **Greek corpus warning count.** Replace the "roughly 300 warnings fleet-wide"
+      extrapolation (from three sheets) with a full count of Warning-log (W) and
+      Alarm-log (A) rows across WT01-WT10 in the SMD10TOWFGR workbook
+      (10.5281/zenodo.14546480); recorded in `data/DATASET_SCOUT.md` and RESULTS_v17.md.
 - v1.5 2026-09-06 (POST HOC - logged after computation, not pre-registered; run
   because the GPT-5.6 referee asked "at minimum" for an independent review of the
   map entries behind the 23 headline events and the top energy events, which v1.4(a)
@@ -212,3 +233,16 @@ undocumented; mitigated by the ยง5 validation. Jan 2023 hole (Penmanshiel WT01โ€
 - The v1 text calling T_act = 6 h "realistic" was a scenario choice. Post-failure outage
   duration (v1.3a) benchmarks the horizon against how long outages last; it does not
   validate that six pre-failure hours suffice to diagnose, dispatch and prevent.
+
+## Dated note on the v1.6(a) retention rule (2026-09-07, after the GPT-5.6 round-3 report)
+
+v1.6(a) said the >=3-row dynamics cell "stays the reported one only if the direction of
+the result holds at >=1 and >=2". The script written before computation encoded that test
+as: majority of events AND more than 99% of energy with rate ratio > 1. As encoded it
+FAILED at floor >=1 (78.1% of events, 89.9% of energy) and passed at >=2 (79.1%, 99.4%).
+Consequence, applied in the paper on 2026-09-07: the unrestricted 979-event result is the
+reported one; the >99%-of-energy figures are stated as conditional on at least two
+matching rows; the >=3 cell is reported beside them, not featured. The prose test
+("direction") would have passed at every floor on the majority criterion alone; we do not
+rely on that reading, because the encoded test is the one that existed before the numbers.
+

@@ -592,6 +592,17 @@ def main():
           f"(must be 0)")
     assert n_no_judgment == 0, "a selected message has no JUDGMENT entry"
 
+    # ------------------------------------------- v1.7(b) headline scenario rows
+    # The five headline values printed above are appended to the summary CSV as
+    # explicit rows (imported late to keep the module import one-directional).
+    print("\n" + "=" * 78)
+    print("=== HEADLINE SCENARIOS WRITTEN TO THE SUMMARY CSV (v1.7b) ===")
+    import map_adjudication_allfour as AF
+    scen = AF.scenario_rows(eng, tier, E, big_pos, eng.fams, cm)
+    print(scen[["scenario", "scenario_kind", "actionable_unacted_pct_E",
+                "delta_pp_vs_frozen"]].to_string(index=False))
+    AF.append_scenarios(scen)
+
     return pairs, summary
 
 

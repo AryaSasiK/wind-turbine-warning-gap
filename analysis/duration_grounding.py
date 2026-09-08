@@ -317,7 +317,8 @@ def fig5(s, curve, refs):
                                               OI["black"], OI["green"], OI["black"]]):
         tick.set_color(col)
     ax.set_xlabel("Action horizon $T_{act}$ (h)")
-    ax.set_ylabel("Actionable-unacted share\nof lost energy (%)", linespacing=1.25)
+    # display label only; the CSV key stays `actionable_unacted` (ARTEFACT_KEY.md)
+    ax.set_ylabel("Long-lead share\nof lost energy (%)", linespacing=1.25)
     ax.grid(color=OI["grey"], alpha=0.22)
     ax.set_axisbelow(True)
     ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.0), ncol=2,

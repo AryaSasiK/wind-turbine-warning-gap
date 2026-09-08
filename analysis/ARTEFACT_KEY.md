@@ -108,3 +108,16 @@ match rate is over all 6,050 T0 events, not over the 4,213 primary events.
 - The safest single check: the primary cell should read 4,213 events or 9,386.5 MWh
   (or 979 same-component-warned events / 1,522.8 MWh for the warned subset). If a row
   says 4,238 or 9,635.6, it is the narrow variant.
+
+## Class names: CSV key vs paper label
+
+- CSV key `actionable_unacted` = paper class **"long-lead"** (renamed in the
+  2026-09-07 revision to neutral wording about a logged row; STUDY_DESIGN v1.7c).
+  The key is unchanged in every artefact - `decomposition.csv`, `bootstrap.csv`,
+  `tact_curve.csv`, `map_sensitivity.csv`, `map_adjudication_summary.csv`,
+  `counterfactual.csv` and the rest all still spell it `actionable_unacted`, and so
+  do the column names built from it (`actionable_unacted_pct_E`, `E_actionable`,
+  `actionable_n_events`, `actionable_MWh`). Only the figure display labels moved:
+  fig1's legend (`figures.py::BUCKET_LBL`) and fig5's y-axis
+  (`duration_grounding.py::fig5`) now read "Long-lead". The other two classes keep
+  their names, `unwarned` = "Unwarned" and `short_lead` = "Short-lead".

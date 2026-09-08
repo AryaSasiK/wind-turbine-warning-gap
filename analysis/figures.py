@@ -41,8 +41,11 @@ OI = {
 # the three decomposition buckets, dark -> light so the stack reads top-down
 BUCKET_C = {"unwarned": OI["grey"], "short_lead": OI["skyblue"],
             "actionable_unacted": OI["vermil"]}
+# Display labels only. The CSV keys are frozen: `actionable_unacted` is the key,
+# "Long-lead" is what the paper calls the class from the 2026-09-07 revision
+# (neutral wording about a logged row, see analysis/ARTEFACT_KEY.md).
 BUCKET_LBL = {"unwarned": "Unwarned", "short_lead": "Short-lead",
-              "actionable_unacted": "Actionable-unacted"}
+              "actionable_unacted": "Long-lead"}
 
 
 def style():

@@ -158,3 +158,45 @@ tblSCTurFlag are the fallback for outage windows); (c) no potential-power
 column, so a power-curve fit is required; (d) no IEC category, so the
 forced-vs-scheduled split must be constructed and frozen pre-outcome.
 Status for the paper: Hill of Towie replication is BLOCKED on (a).
+
+## UPDATE 2026-09-07 - Greek SMD10TOWFGR: full count replaces the extrapolation
+
+Row 2 and section 2 above quote "roughly **300** warnings and **600** alarms fleet-wide".
+That figure was an extrapolation: three of the ten turbine sheets were read (WT01, WT05,
+WT10) and scaled by 10/3. The whole workbook has now been counted
+(`analysis/greek_log_counts.py`, openpyxl `read_only` streaming pass, one sheet at a time,
+over `SCADA__monitoring_dataset_2020.xlsx`, 180,707,378 bytes, Zenodo
+[10.5281/zenodo.14546480](https://doi.org/10.5281/zenodo.14546480), downloaded to the local data volume). The workbook holds 20
+sheets - `WT01_data.csv` .. `WT10_data.csv` and `WT01_logs.csv` .. `WT10_logs.csv`; the
+`.csv` is part of the sheet name.
+
+| sheet | log rows | Warning log (W) | Alarm log (A) | Operation log (O) | System log (S) |
+|---|---:|---:|---:|---:|---:|
+| WT01_logs.csv | 16,037 | 20 | 74 | 15,788 | 155 |
+| WT02_logs.csv | 25,444 | 60 | 61 | 25,153 | 170 |
+| WT03_logs.csv | 23,731 | 129 | 395 | 22,682 | 525 |
+| WT04_logs.csv | 19,623 | 18 | 37 | 19,508 | 60 |
+| WT05_logs.csv | 22,501 | 45 | 66 | 22,177 | 213 |
+| WT06_logs.csv | 25,293 | 128 | 74 | 24,871 | 220 |
+| WT07_logs.csv | 25,645 | 62 | 94 | 25,354 | 135 |
+| WT08_logs.csv | 24,202 | 120 | 66 | 23,821 | 195 |
+| WT09_logs.csv | 24,083 | 82 | 86 | 23,820 | 95 |
+| WT10_logs.csv | 24,059 | 24 | 49 | 23,933 | 53 |
+| **fleet** | **230,618** | **688** | **1,002** | **227,107** | **1,821** |
+
+`Event type` takes exactly the four documented values and nothing else - no blanks, no
+fifth category - across all 230,618 rows.
+
+**So the fleet-wide count is 688 Warning-log rows and 1,002 Alarm-log rows over
+1 Jan - 30 Jun 2020, not ~300 and ~600.** The three sheets the original estimate used
+reproduce exactly (WT01 20/74, WT05 45/66, WT10 24/49), so the arithmetic was right and
+the sample was unlucky: those three are among the quietest turbines. Warnings are
+**2.3x** the extrapolation, alarms **1.7x**. Dispersion across turbines is large - WT04
+has 18 warnings, WT03 has 129, and WT03 alone carries 39% of the fleet's alarms.
+
+Assessment unchanged in direction, improved in degree: the corpus is still far too small
+for a second headline (688 warnings over ~5 turbine-years against 17,793 post-COD warning
+rows over 159.06 turbine-years here, a factor of ~26 on warning supply and ~32 on
+exposure), but a structural replication of the warned-share and lead-time distribution is
+better supported than the earlier number suggested. Any paper sentence saying "roughly 300
+warnings" must be corrected to 688.

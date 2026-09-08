@@ -18,6 +18,7 @@ This script recomputes both bases from the frozen artefacts:
 
     python3 warning_rows_by_family.py
 """
+import glob
 import os
 import re
 
@@ -88,6 +89,55 @@ def turbine_years_cod():
     return TURBINE_YEARS * cod / raw
 
 
+def scada_exposure_by_turbine():
+    """Per-turbine elapsed post-COD exposure, counted in real SCADA bins.
+
+    `turbine_years_cod()` above is a NOMINAL denominator: 171 file-years (turbine
+    x calendar year, so a turbine commissioned in March contributes a whole 2016)
+    rescaled by the post-COD fraction of the first-to-last status-log span. It
+    never asks whether the turbine was actually observed in those years.
+
+    This function counts exposure instead of assuming it: for each turbine, the
+    number of 10-minute SCADA grid bins that (i) fall at or after the farm's COD
+    (`common.COD`) and (ii) lie inside the turbine's own status-log span
+    [first t0, last t0]. The per-turbine caches in `derived/scada_min` are the
+    right source - one row per distinct 10-minute timestamp, all-NaN Greenbyte
+    padding rows already dropped by `build_scada_cache.py`, so a row is a bin the
+    farm really reported. `derived/scada_coverage.csv` is per zip member and
+    carries `expected_rows_in_span` alongside `n_rows`, i.e. it would have to be
+    de-duplicated across the split 2023 Penmanshiel zips before it could be
+    summed; the caches already are. Internal holes (a handful of gaps > 600 s per
+    turbine) are therefore excluded rather than interpolated over.
+
+    Returns a frame with one row per turbine: bins, turbine-years, and the
+    first-to-last span for comparison.
+    """
+    st, _ = C.load_status()
+    st = st[st["t0"].notna()]
+    span = {(f, int(t)): (g["t0"].min(), g["t0"].max())
+            for (f, t), g in st.groupby(["farm", "turbine_id"])}
+    hours_per_year = 365.25 * 24.0
+    out = []
+    for path in sorted(glob.glob(os.path.join(C.SCADA_CACHE, "*.parquet"))):
+        farm, tid = os.path.basename(path)[: -len(".parquet")].split("_WT")
+        lo, hi = span[(farm, int(tid))]
+        cod = C.COD[farm]
+        ts = pd.read_parquet(path, columns=[C.TS])[C.TS]
+        bins = int(((ts >= cod) & (ts >= lo) & (ts <= hi)).sum())
+        out.append({"farm": farm, "turbine_id": int(tid),
+                    "status_first": lo, "status_last": hi,
+                    "bins_post_cod": bins,
+                    "turbine_years": bins * C.BIN_HOURS / hours_per_year,
+                    "span_years_post_cod":
+                        (hi - max(lo, cod)).total_seconds() / 3600.0 / hours_per_year})
+    return pd.DataFrame(out).sort_values(["farm", "turbine_id"]).reset_index(drop=True)
+
+
+def turbine_years_scada_cod():
+    """Total real post-COD exposure in turbine-years (see the function above)."""
+    return float(scada_exposure_by_turbine()["turbine_years"].sum())
+
+
 def parse_table_i():
     """Read the warning-rows-per-turbine-year column out of Table I."""
     tex = open(MAIN_TEX, encoding="utf-8").read()
@@ -113,6 +163,8 @@ def main():
     raw = raw_counts()
     ded, ded_cod = dedup_counts()
     ty_cod = turbine_years_cod()
+    exposure = scada_exposure_by_turbine()
+    ty_scada = float(exposure["turbine_years"].sum())
 
     df = (pd.DataFrame({"rows_raw": raw, "rows_dedup": ded,
                         "rows_dedup_cod": ded_cod})
@@ -122,6 +174,9 @@ def main():
     df["per_ty_raw"] = (df.rows_raw / TURBINE_YEARS).round(4)
     df["per_ty_dedup"] = (df.rows_dedup / TURBINE_YEARS).round(4)
     df["per_ty_dedup_cod"] = (df.rows_dedup_cod / ty_cod).round(4)
+    # v1.7(a): same numerator, real elapsed post-COD exposure instead of the
+    # rescaled file-year count. Appended last so every existing column is unchanged.
+    df["per_ty_scada_cod"] = (df.rows_dedup_cod / ty_scada).round(4)
 
     assert df.rows_raw.sum() == RAW_TOTAL, \
         f"raw total {df.rows_raw.sum():,} != {RAW_TOTAL:,}"
@@ -141,7 +196,20 @@ def main():
     print(df.to_string(index=False,
                        formatters={"per_ty_raw": "{:.2f}".format,
                                    "per_ty_dedup": "{:.2f}".format,
-                                   "per_ty_dedup_cod": "{:.2f}".format}))
+                                   "per_ty_dedup_cod": "{:.2f}".format,
+                                   "per_ty_scada_cod": "{:.2f}".format}))
+
+    # ------------------------------------------------------ v1.7(a) exposure
+    print(f"\nReal post-COD exposure from the 10-minute SCADA grid "
+          f"({len(exposure)} turbines):")
+    print(exposure.to_string(index=False,
+                             formatters={"turbine_years": "{:.4f}".format,
+                                         "span_years_post_cod": "{:.4f}".format}))
+    print(f"total bins {int(exposure.bins_post_cod.sum()):,}   "
+          f"exposure {ty_scada:.4f} turbine-years")
+    print(f"first-to-last post-COD span sum {exposure.span_years_post_cod.sum():.4f} "
+          f"turbine-years   nominal rescaled {ty_cod:.4f}   "
+          f"nominal file-years {TURBINE_YEARS:.0f}")
 
     # ------------------------------------------------ Table I reconciliation
     tex = parse_table_i()
