@@ -167,7 +167,7 @@ def fig2(att, full):
                 where="post", color=c, ls=ls, label=lbl,
                 lw=1.1 if weight == "count" else 0.95)
 
-    for t, lbl in ((1, r"$T_{act}$ 1 h"), (6, "6 h"), (24, "24 h")):
+    for t, lbl in ((1, r"$T_{lead}$ 1 h"), (6, "6 h"), (24, "24 h")):
         ax.axvline(t, color=OI["grey"], lw=0.6, ymax=0.925,
                    ls="-" if t == 6 else (0, (1.2, 1.6)))
         ax.text(t, 0.945, lbl, ha="center", va="bottom", fontsize=6.2,
@@ -271,7 +271,7 @@ def fig4(att, full):
     ax.set_xlim(3e-4, 110)
     ax.set_ylim(bottom=max(s["E_mwh"].min() * 0.6, 1e-5))
     ax.axvline(6, color=OI["black"], lw=0.8, ls=(0, (3, 1.4)), zorder=1)
-    ax.text(5.2, ax.get_ylim()[1] * 0.72, "$T_{act}$ = 6 h", fontsize=6.4,
+    ax.text(5.2, ax.get_ylim()[1] * 0.72, "$T_{lead}$ = 6 h", fontsize=6.4,
             ha="right", va="top")
     ax.set_xticks([0.001, 0.01, 0.1, 1, 6, 24, 72])
     ax.set_xticklabels(["0.001", "0.01", "0.1", "1", "6", "24", "72"])

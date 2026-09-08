@@ -267,7 +267,7 @@ def fig5(s, curve, refs):
             np.concatenate([[0], eng_sh, [0]]), where="mid",
             color=OI["vermil"], lw=1.1, label="Lost energy", zorder=3)
     ax.axvline(6, color=OI["black"], lw=0.8, ls=(0, (3, 1.4)), zorder=4)
-    ax.text(6 * 1.25, ax.get_ylim()[1] * 0.96, "$T_{act}$ = 6 h", fontsize=6.4,
+    ax.text(6 * 1.25, ax.get_ylim()[1] * 0.96, "$T_{lead}$ = 6 h", fontsize=6.4,
             ha="left", va="top")
     ax.set_xscale("log")
     ax.set_xlim(edges[0], edges[-1])
@@ -316,7 +316,7 @@ def fig5(s, curve, refs):
                          [OI["black"]] * 2 + [OI["black"], OI["green"],
                                               OI["black"], OI["green"], OI["black"]]):
         tick.set_color(col)
-    ax.set_xlabel("Lead-time threshold $T_{act}$ (h)")
+    ax.set_xlabel("Lead-time threshold $T_{lead}$ (h)")
     # display label only; the CSV key stays `actionable_unacted` (ARTEFACT_KEY.md)
     ax.set_ylabel("Long-lead share\nof lost energy (%)", linespacing=1.25)
     ax.grid(color=OI["grey"], alpha=0.22)

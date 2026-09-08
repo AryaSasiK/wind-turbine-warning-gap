@@ -258,7 +258,7 @@ documented in analysis/ARTEFACT_KEY.md.
 
 ## Dated note on implementation conventions absent from the frozen text (2026-09-07, after the GPT-5.6 round-5 report)
 
-Three conventions that the paper relies on were fixed in code, not in this file, and are
+Four conventions that the paper relies on were fixed in code, not in this file, and are
 therefore non-prespecified implementation choices. None was chosen after an outcome was seen.
 
 - **Control re-draw cap, +-10 d** (controls.py, `MAX_DEVIATION_D = 10`, file dated
@@ -274,6 +274,18 @@ therefore non-prespecified implementation choices. None was chosen after an outc
   reproduces Greenbyte's own `Lost Production to Downtime` to a ratio of 1.0004 (PROFILE
   section 5, checks.md); it is not stated in the frozen text. Affects 1,745 of 4,213 T2 events
   (41.4%), overwhelmingly sub-10-minute stops.
+- **Merge predicate: overlap OR touch** (common.py::merge_intervals, `t0 <= running max end`;
+  file dated 2026-08-27, stage 1). The frozen text above says "merge overlapping/nested stop
+  intervals"; abutting records are neither, so the code is broader than the prose. Found
+  2026-09-08 by an independent re-implementation and confirmed by a second. Three of the eight
+  absorbed stop rows abut rather than overlap. Under the stricter reading (merge only on
+  genuine overlap): 4,216 events, 9,387.1 MWh, strict long-lead share 7.128% (-0.40 pp,
+  inside the reported interval), permissive 35.47% (+1.14 pp); essentially all of the strict
+  move comes from one Penmanshiel WT15 event that splits into a safety-only piece with no
+  same-component match and a smaller matched piece. Note that the stricter reading is not
+  uniformly conservative: splitting a running outage lets a warning row logged during it
+  precede the later fragment, which is why the permissive share rises. The paper reports the
+  frozen code's rule and discloses both.
 - **The v1.6(a) ">99% of energy" gate** (see the dated note on the v1.6(a) retention rule
   above): v1.6 prose says only that "the direction" must hold at floors >=1 and >=2; the
   majority-of-events AND >99%-of-energy encoding is code-defined, fixed before computation,
