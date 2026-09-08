@@ -123,7 +123,7 @@ def fig1(dec, boot):
              & (dec.control_offset_d == 45) & (dec.weight == "energy")].iloc[0]
     ax.plot([ra["unwarned"]] * 2, [ypos[2] - 0.16, ypos[0] + 0.30], color=OI["black"],
             lw=0.9, ls=(0, (2.4, 1.4)), zorder=4)
-    ax.text(ra["unwarned"], ypos[2] - 0.22, "any-warning upper bound\non the warned share",
+    ax.text(ra["unwarned"], ypos[2] - 0.22, "any-warning\nwarned share",
             fontsize=6.2, ha="center", va="top", color=OI["black"], linespacing=1.2)
 
     ax.set_xlim(0, 1)

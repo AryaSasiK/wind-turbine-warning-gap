@@ -246,3 +246,13 @@ matching rows; the >=3 cell is reported beside them, not featured. The prose tes
 ("direction") would have passed at every floor on the majority criterion alone; we do not
 rely on that reading, because the encoded test is the one that existed before the numbers.
 
+## Dated global clarification of historical wording (2026-09-07, after the GPT-5.6 round-4 report)
+
+Every use of "pre-registered" / "(pre-registered)" in this file and in RESULTS_v13.md,
+RESULTS_v14.md and RESULTS_v16.md means "prespecified in this dated internal log before
+the computation it describes". No entry was registered with an external, timestamped
+registry, and the paper says so. The historical text is left as written. The class the
+frozen text and earlier notes call "actionable-unacted" is, from v1.7 (2026-09-07), called
+"long-lead" in the paper and figures; the CSV key `actionable_unacted` is unchanged and is
+documented in analysis/ARTEFACT_KEY.md.
+

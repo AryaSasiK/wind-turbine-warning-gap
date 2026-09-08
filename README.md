@@ -105,6 +105,10 @@ fully extracts them. `data/MANIFEST.json` holds the MD5s of every file used.
   exposure (159.1 turbine-years), explicit adjudication-scenario rows, full
   Greek corpus count, figure class label "long-lead"; STUDY_DESIGN v1.7 and the
   dated note on the v1.6(a) retention rule.
+- v1.4 (2026-09-07): no new analysis; Fig. 1 annotation wording, and a dated
+  global clarification in STUDY_DESIGN.md that historical "pre-registered"
+  means internally dated "prespecified" and that "actionable-unacted" is now
+  "long-lead".
 
 ## Reproducing
 
