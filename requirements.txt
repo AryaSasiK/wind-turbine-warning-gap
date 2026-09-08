@@ -3,3 +3,4 @@ numpy>=1.24
 pyarrow>=14.0
 matplotlib>=3.7
 scipy>=1.10
+openpyxl>=3.1   # analysis/greek_log_counts.py only

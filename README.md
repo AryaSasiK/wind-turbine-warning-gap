@@ -1,6 +1,6 @@
 # The Actionable-Warning Gap — analysis pipeline
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22654178.svg)](https://doi.org/10.5281/zenodo.22654178)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22654826.svg)](https://doi.org/10.5281/zenodo.22654826)
 
 Code and frozen artefacts behind the paper:
 
@@ -105,11 +105,12 @@ fully extracts them. `data/MANIFEST.json` holds the MD5s of every file used.
   exposure (159.1 turbine-years), explicit adjudication-scenario rows, full
   Greek corpus count, figure class label "long-lead"; STUDY_DESIGN v1.7 and the
   dated note on the v1.6(a) retention rule.
-- v1.4 (2026-09-07, 10.5281/zenodo.22653906): no new analysis; Fig. 1 annotation wording, and a dated
+- v1.4 (2026-09-07, 10.5281/zenodo.22653906): no new analysis; Fig. 1 annotation
+  wording, and a dated global clarification in STUDY_DESIGN.md that historical
+  "pre-registered" means internally dated "prespecified" and that
+  "actionable-unacted" is now "long-lead".
 - v1.5 (2026-09-07, 10.5281/zenodo.22654178): no new analysis; Fig. 5 x-axis label "Action horizon" -> "Lead-time threshold" in duration_grounding.py, stale comment in figures.py; README version list.
-  global clarification in STUDY_DESIGN.md that historical "pre-registered"
-  means internally dated "prespecified" and that "actionable-unacted" is now
-  "long-lead".
+- v1.6 (2026-09-07, 10.5281/zenodo.22654826): no new analysis; STUDY_DESIGN.md gains a dated note classifying three implementation conventions (control re-draw cap, empty-window energy convention, the code-defined >99%-of-energy dynamics gate) as non-prespecified, with file dates and the contemporaneous stage-2 record.
 
 ## Reproducing
 
@@ -121,7 +122,11 @@ python analysis/build_events.py  # then the rest in the order above
 ```
 
 Paths default to `./wind-turbine-warning-gap-data/{raw,derived}`; override with
-the `WTWG_RAW` and `WTWG_DERIVED` environment variables.
+the `WTWG_RAW` and `WTWG_DERIVED` environment variables. Two optional variables
+cover inputs outside the two main datasets: `WTWG_GREEK_XLSX` (the Greek monitoring
+workbook read by `analysis/greek_log_counts.py`) and `WTWG_HOT_CACHE` (the scratch
+cache directory used by `analysis/hot_alarm_inventory.py`). Both have repo-relative
+defaults, so neither is required to reproduce any number in the paper.
 
 ## License
 

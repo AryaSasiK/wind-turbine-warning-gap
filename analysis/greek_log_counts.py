@@ -19,10 +19,8 @@ Severity` - and rows are counted by the exact `Event type` string.
 
     python3 greek_log_counts.py [--xlsx PATH]
 
-Interpreter note: the project env `~/miniconda3/envs/lerobot` has no openpyxl and a
-`pip install` timed out on 2026-09-07, so this was run with the base env
-`~/miniconda3/bin/python` (openpyxl 3.1.5). This script imports nothing from the
-pipeline, so the env does not matter to any frozen number.
+Requires openpyxl (see requirements.txt). This script imports nothing from the
+pipeline, so its environment does not affect any frozen number.
 
 The default path is the external volume; pass --xlsx if the workbook lives
 elsewhere. Nothing is written: the counts are printed and transcribed by hand into
