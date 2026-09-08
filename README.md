@@ -1,6 +1,6 @@
 # The Actionable-Warning Gap — analysis pipeline
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22652197.svg)](https://doi.org/10.5281/zenodo.22652197)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22653079.svg)](https://doi.org/10.5281/zenodo.22653079)
 
 Code and frozen artefacts behind the paper:
 
@@ -100,7 +100,7 @@ fully extracts them. `data/MANIFEST.json` holds the MD5s of every file used.
   2026-09-07 after the second cross-model review, before computation): dynamics
   floor sensitivity, turbine-year block bootstrap, merged-event audit,
   `tier_variant` column; STUDY_DESIGN v1.6 and its dated wording qualifications.
-- v1.3 (2026-09-07): adds the v1.7 analyses (prespecified 2026-09-07 after the
+- v1.3 (2026-09-07, 10.5281/zenodo.22653079): adds the v1.7 analyses (prespecified 2026-09-07 after the
   third cross-model review, before computation): Table I rates on real SCADA
   exposure (159.1 turbine-years), explicit adjudication-scenario rows, full
   Greek corpus count, figure class label "long-lead"; STUDY_DESIGN v1.7 and the
