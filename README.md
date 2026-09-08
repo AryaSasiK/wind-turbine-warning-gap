@@ -90,7 +90,7 @@ fully extracts them. `data/MANIFEST.json` holds the MD5s of every file used.
   the v1.5 map adjudication (2026-09-06, post hoc, labelled so), the claim
   ledger, the Table I basis correction (RESULTS.md erratum 2026-09-06), the
   dataset scout, and the Hill of Towie code inventory.
-- v1.2 (unreleased, on `main`): adds the v1.6 analyses (pre-registered
+- v1.2 (2026-09-07): adds the v1.6 analyses (pre-registered
   2026-09-07 after the second cross-model review, before computation): dynamics
   floor sensitivity, turbine-year block bootstrap, merged-event audit,
   `tier_variant` column; STUDY_DESIGN v1.6 and its dated wording qualifications.
