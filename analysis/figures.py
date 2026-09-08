@@ -116,7 +116,7 @@ def fig1(dec, boot):
             ax.text(1 - b["ci_hi"] - 0.02, yy, "95% CI", ha="right", va="center",
                     fontsize=6.2)
 
-    # any-warning upper bound on T2: where the unwarned block would end under the
+    # any-warning warned share on T2: where the unwarned block would end under the
     # permissive rule, i.e. how much of the gap is a component-matching artefact.
     ra = dec[(dec.population == "all") & (dec.tier == "T2") & (dec.rule == "any")
              & (dec.lookback_h == 72) & (dec.T_act_h == 6)
