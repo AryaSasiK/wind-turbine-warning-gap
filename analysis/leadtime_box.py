@@ -107,7 +107,7 @@ def build(s):
 def fig6(box):
     F.style()
     OI = F.OI
-    fig, ax = plt.subplots(figsize=(F.COL_W, 2.7))
+    fig, ax = plt.subplots(figsize=(F.COL_W, 2.4))
 
     bxp = []
     for _, r in box.iterrows():

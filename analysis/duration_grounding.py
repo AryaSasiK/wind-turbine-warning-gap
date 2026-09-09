@@ -250,7 +250,7 @@ def lead_vs_duration(s):
 def fig5(s, curve, refs):
     F.style()
     OI = F.OI
-    fig, axes = plt.subplots(2, 1, figsize=(F.COL_W, 4.5),
+    fig, axes = plt.subplots(2, 1, figsize=(F.COL_W, 3.9),
                              gridspec_kw={"hspace": 0.62})
 
     # ---- top: duration histogram ------------------------------------------

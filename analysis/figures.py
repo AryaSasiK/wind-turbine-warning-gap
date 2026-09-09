@@ -77,7 +77,7 @@ def save(fig, name):
 # --------------------------------------------------------------------- fig 1
 def fig1(dec, boot):
     """Stacked decomposition bars, T2 primary thick, T0/T1 thin companions."""
-    fig, ax = plt.subplots(figsize=(COL_W, 2.35))
+    fig, ax = plt.subplots(figsize=(COL_W, 2.0))
     rows = [("T2", "T2 (primary)", 0.52), ("T1", "T1", 0.26), ("T0", "T0", 0.26)]
     ypos = [0.0, -0.62, -1.06]
 
@@ -200,7 +200,7 @@ def fig3(att, full):
     sub, csub = att[m].reset_index(drop=True), full[m].reset_index(drop=True)
     b = np.digitize(sub["duration_h"].values, EDGES[1:-1], right=False)
 
-    fig, axes = plt.subplots(2, 1, figsize=(COL_W, 3.3), sharex=True,
+    fig, axes = plt.subplots(2, 1, figsize=(COL_W, 2.9), sharex=True,
                              gridspec_kw={"hspace": 0.16})
     for ax, rule, title in zip(axes, ("any", "same"),
                                ("Any-warning", "Same-component")):

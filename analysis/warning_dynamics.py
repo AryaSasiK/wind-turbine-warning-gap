@@ -218,7 +218,7 @@ def build_trend(idx, s):
 def fig7(prof):
     F.style()
     OI = F.OI
-    fig, ax = plt.subplots(figsize=(F.COL_W, 2.5))
+    fig, ax = plt.subplots(figsize=(F.COL_W, 2.2))
     x = prof.hours_before_lo.unique() + 0.5
 
     specs = [("same", "events_warned", OI["vermil"], "-", "Same-component, events"),
