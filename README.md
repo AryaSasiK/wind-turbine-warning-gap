@@ -1,6 +1,6 @@
 # The Actionable-Warning Gap — analysis pipeline
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22655229.svg)](https://doi.org/10.5281/zenodo.22655229)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22667694.svg)](https://doi.org/10.5281/zenodo.22667694)
 
 Code and frozen artefacts behind the paper:
 
@@ -112,6 +112,7 @@ fully extracts them. `data/MANIFEST.json` holds the MD5s of every file used.
 - v1.5 (2026-09-07, 10.5281/zenodo.22654178): no new analysis; Fig. 5 x-axis label "Action horizon" -> "Lead-time threshold" in duration_grounding.py, stale comment in figures.py; README version list.
 - v1.6 (2026-09-07, 10.5281/zenodo.22654826): no new analysis; STUDY_DESIGN.md gains a dated note classifying three implementation conventions (control re-draw cap, empty-window energy convention, the code-defined >99%-of-energy dynamics gate) as non-prespecified, with file dates and the contemporaneous stage-2 record.
 - v1.7 (2026-09-08, 10.5281/zenodo.22655229): analysis/headline_events_23.csv and headline_events_23.py, the event-level disclosure table behind the 7.53% headline; STUDY_DESIGN.md records a fourth non-prespecified implementation convention (the merge predicate merges touching as well as overlapping intervals; strict-overlap reading gives 7.13%).
+- v1.8 (2026-09-09, 10.5281/zenodo.22667694): no new analysis; STUDY_DESIGN.md corrects the empty-window energy convention note (1,369 of the 1,745 zero-energy events come from the empty-window rule, 376 from the potential-power series never exceeding measured power); headline_events_23.py writes headline_events_23.csv, the filename the paper cites.
 
 ## Reproducing
 
