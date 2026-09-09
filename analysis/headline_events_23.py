@@ -147,7 +147,7 @@ for _, ev in sub.iterrows():
 
 t = pd.DataFrame(rows)
 t.insert(0, "rank_by_energy", range(1, len(t) + 1))
-t.to_csv(OUT + "event23_table.csv", index=False)
+t.to_csv(OUT + "headline_events_23.csv", index=False)
 
 # ------------------------------------------------------------------- CHECKS
 print("=== CHECK 1: energy sum ===")
@@ -182,4 +182,4 @@ for k in ("farm", "turbine", "start_date", "duration_h", "lost_energy_mwh",
           "stop_message", "stop_family_frozen_map", "warning_message", "lead_h"):
     print(f"  {k:<24} {big[k]}")
 
-print("\nwrote " + OUT + "event23_table.csv")
+print("\nwrote " + OUT + "headline_events_23.csv")

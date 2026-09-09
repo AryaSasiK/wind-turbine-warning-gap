@@ -272,8 +272,10 @@ therefore non-prespecified implementation choices. None was chosen after an outc
   is dated to the day only, so no ordering against it is claimed; the convention predates
   any warned share). The convention was chosen because it
   reproduces Greenbyte's own `Lost Production to Downtime` to a ratio of 1.0004 (PROFILE
-  section 5, checks.md); it is not stated in the frozen text. Affects 1,745 of 4,213 T2 events
-  (41.4%), overwhelmingly sub-10-minute stops.
+  section 5, checks.md); it is not stated in the frozen text. Affects 1,369 of 4,213 T2 events
+  (all sub-10-minute stops); a further 376 are charged zero because the potential-power
+  series never exceeds measured power inside the window, 1,745 (41.4%) in total.
+  Corrected 2026-09-08; the earlier text attributed all 1,745 to the empty-window rule.
 - **Merge predicate: overlap OR touch** (common.py::merge_intervals, `t0 <= running max end`;
   file dated 2026-08-27, stage 1). The frozen text above says "merge overlapping/nested stop
   intervals"; abutting records are neither, so the code is broader than the prose. Found
