@@ -1,6 +1,6 @@
 # The Actionable-Warning Gap — analysis pipeline
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22668856.svg)](https://doi.org/10.5281/zenodo.22668856)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22669452.svg)](https://doi.org/10.5281/zenodo.22669452)
 
 Code and frozen artefacts behind the paper:
 
@@ -114,6 +114,7 @@ fully extracts them. `data/MANIFEST.json` holds the MD5s of every file used.
 - v1.7 (2026-09-08, 10.5281/zenodo.22655229): analysis/headline_events_23.csv and headline_events_23.py, the event-level disclosure table behind the 7.53% headline; STUDY_DESIGN.md records a fourth non-prespecified implementation convention (the merge predicate merges touching as well as overlapping intervals; strict-overlap reading gives 7.13%).
 - v1.8 (2026-09-09, 10.5281/zenodo.22667694): no new analysis; STUDY_DESIGN.md corrects the empty-window energy convention note (1,369 of the 1,745 zero-energy events come from the empty-window rule, 376 from the potential-power series never exceeding measured power); headline_events_23.py writes headline_events_23.csv, the filename the paper cites.
 - v1.9 (2026-09-09, 10.5281/zenodo.22668856): referee-requested audit artefacts, no analytical change: analysis/zero_energy_audit.csv (1,369 no-bin-start + 376 potential-never-exceeds-power), analysis/merge_predicate_sensitivity.csv (frozen overlap-or-touch versus strict-overlap merge), analysis/counterfactual_events_audit.csv (all 698 long-lead events), each with its script; claim_ledger.csv C2a corrected.
+- v1.10 (2026-09-09, 10.5281/zenodo.22669452): analysis/leadtime_box.py Fig. 4 annotation T_act -> T_lead. Label only; no analytical change.
 
 ## Reproducing
 
