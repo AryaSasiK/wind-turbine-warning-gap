@@ -129,7 +129,7 @@ def fig6(box):
             mfc=OI["black"], mec="white", mew=0.5, zorder=6,
             label="Energy-weighted median")
     ax.axhline(6, color=OI["black"], lw=0.7, ls=(0, (3, 1.4)), zorder=1)
-    ax.text(len(box) + 0.55, 6, "$T_{act}$\n6 h", fontsize=6.0, ha="left",
+    ax.text(len(box) + 0.55, 6, "$T_{lead}$\n6 h", fontsize=6.0, ha="left",
             va="center", linespacing=1.2)
 
     ax.set_yscale("log")
