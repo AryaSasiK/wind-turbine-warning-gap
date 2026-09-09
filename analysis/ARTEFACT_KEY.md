@@ -121,3 +121,11 @@ match rate is over all 6,050 T0 events, not over the 4,213 primary events.
   fig1's legend (`figures.py::BUCKET_LBL`) and fig5's y-axis
   (`duration_grounding.py::fig5`) now read "Long-lead". The other two classes keep
   their names, `unwarned` = "Unwarned" and `short_lead` = "Short-lead".
+
+The CSV column `T_act_h` is the lead-time threshold the paper writes as
+$T_\mathrm{lead}$ (renamed in the manuscript 2026-09-08; the column name is unchanged,
+like `actionable_unacted` for the class the paper calls long-lead).
+
+- `zero_energy_audit.csv` (added 2026-09-08, written by `zero_energy_audit.py`): no tier column, single population - every row is drawn from the `T2_wide_grid` flag on `events.parquet`, so the 1,745 rows are the zero-energy subset of the primary 4,213 events / 9,386.5 MWh, split by the `reason` column into 1,369 `no_bin_start` and 376 `potential_never_exceeds_measured`.
+- `merge_predicate_sensitivity.csv` (added 2026-09-08, written by `merge_predicate_sensitivity.py`): two rows keyed by `predicate`, and the primary population is the `predicate == "overlap_or_touch"` row - the frozen merge rule in `common.py`, 4,213 events / 9,386.5 MWh; `predicate == "strict_overlap"` is a labelled sensitivity at 4,216 / 9,387.1 MWh. Trap: the columns `strict_long_lead_pct` and `permissive_long_lead_pct` name the two MATCHING rules (same-component / any-warning), not the two merge predicates.
+- `counterfactual_events_audit.csv` (added 2026-09-08, written by `counterfactual_events_audit.py`): no tier column, single population - the 698 rows are the long-lead cell already frozen in `counterfactual_events.parquet` (`T2_wide_grid`, same-component, 72 h lookback, `T_act_h == 6`), i.e. 698 actionable of the 4,213, and the `_p50` columns are the arm the parquet froze while the `_p75` columns are reconstructed from `planned_duration.csv`.

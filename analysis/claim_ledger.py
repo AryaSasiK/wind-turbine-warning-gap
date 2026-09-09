@@ -84,7 +84,7 @@ def main():
     nz = int((E == 0).sum())
     claim("C2a", "1,745 of the 4,213 T2 events carry zero measured energy",
           "main.tex L281 (measurement grid)", 1745, nz, 0, "events",
-          "E_mwh exactly 0.0 - the merged window contains no 10-min bin start")
+          "E_mwh exactly 0.0: 1,369 windows contain no 10-min bin start, 376 contain bins but potential never exceeds measured power (zero_energy_audit.csv)")
     claim("C2b", "...which is 41.4% of T2 events", "main.tex L281 (derived)",
           41.4, 100 * nz / len(E), 0.05, "% of T2 events", "")
 
